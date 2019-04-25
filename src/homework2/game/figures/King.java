@@ -34,7 +34,7 @@ public class King extends FigureBase implements Figure {
         return false;
     }
 
-    //TODO
+    //checks of king moves only by one field. emptity of moveTo not tested
     public boolean canIMoveTo(Field moveTo) {
         if(!canIMoveBasic(whereAmI, moveTo))
         {
@@ -42,13 +42,17 @@ public class King extends FigureBase implements Figure {
         }
 
         boolean contains = false;
+        Field temp;
         for(int i = 0; i < 8; i++)
         {
             if(whereAmI.surrounding[i].getRow() == moveTo.getRow()) //moveTo is off-by-one
             {
                 if(!whereAmI.surrounding[i].isEmpty() && (whereAmI.surrounding[i].get().isWhite() != this.isWhite()))
-                contains = true;
-                break;
+                {
+                    contains = true;
+                    temp = whereAmI.surrounding[i];
+                    break;
+                }
             }
         }
         return contains;

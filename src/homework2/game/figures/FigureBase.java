@@ -3,7 +3,7 @@ package homework2.game.figures;
 
 import homework2.common.Field;
 import homework2.common.Figure;
-
+//TODO kdo muze koho preskakovat
 public class FigureBase {
     protected boolean isItWhite;
     protected boolean inGame;

@@ -34,8 +34,15 @@ public class Knight extends FigureBase implements Figure
         return false;
     }
 
-    //todo
-    public boolean canIMoveTo(Field moveTo) {
-        return false;
+    //checked the direction. Knight can jump over all other figures (including enemies) => no need to control
+    public boolean canIMoveTo(Field moveTo)
+    {
+        if(!canIMoveBasic(whereAmI, moveTo))
+        {
+            return false;
+        }
+       int differenceRow = java.lang.Math.abs(this.whereAmI.getRow() - moveTo.getRow());
+       int differenceCol = java.lang.Math.abs(this.whereAmI.getCol() - moveTo.getCol());
+       return (differenceCol == 2 && differenceRow == 1) || (differenceCol == 1 && differenceRow == 2);
     }
 }

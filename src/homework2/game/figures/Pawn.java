@@ -35,7 +35,8 @@ public class Pawn extends FigureBase implements Figure {
         return false;
     }
 
-    //Check
+    //both two possibilities checked (straight and diagonal)
+    //NOTE Only here canIMove checks even moveTo (because it is necessary to check legality of move)
     public boolean canIMoveTo(Field moveTo) {
         //common
         if(!canIMoveBasic(this.whereAmI, moveTo))
@@ -49,8 +50,24 @@ public class Pawn extends FigureBase implements Figure {
             return false;
         }
         Field.Direction direction = this.whereAmI.getDirection(moveTo);
-        return (isWhite() && direction == Field.Direction.U) ||
-                (!isWhite() && direction == Field.Direction.D);
-
+        boolean moveStraight = (isWhite() && direction == Field.Direction.U) || (!isWhite() && direction == Field.Direction.D);
+        //go straight without kill
+        if(moveStraight && this.whereAmI.nextField(direction).isEmpty())
+        {
+            return true;
+        }
+        else //check diagonal direction and enemy on moveTo.
+        {
+            switch(direction)
+            {
+                case LU:
+                case LD:
+                case RU:
+                case RD:
+                    return !this.whereAmI.nextField(direction).isEmpty() && (this.whereAmI.nextField(direction).get().isWhite() != this.whereAmI.get().isWhite());
+                default:
+                    return false;
+            }
+        }
     }
 }

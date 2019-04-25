@@ -30,8 +30,21 @@ public class Queen extends FigureBase implements Figure {
         return false;
     }
 
-    //TODO
-    public boolean canIMoveTo(Field moveTo) {
-        return false;
+    //checks only if the way is clear (excluding moveTo)
+    public boolean canIMoveTo(Field moveTo)
+    {
+        if(!canIMoveBasic(whereAmI, moveTo))
+        {
+            return false;
+        }
+        Field.Direction direction = this.whereAmI.getDirection(moveTo);
+        Field neighborInDirection = this.whereAmI.nextField(direction);
+        while (neighborInDirection != moveTo)
+        {
+            if(!neighborInDirection.isEmpty())
+                return false;
+            neighborInDirection = neighborInDirection.nextField(direction);
+        }
+        return true;
     }
 }

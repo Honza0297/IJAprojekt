@@ -54,7 +54,8 @@ public class Rook extends FigureBase implements Figure {
     }
 
     //Check
-    public boolean canIMoveTo(Field moveTo) {
+    public boolean canIMoveTo(Field moveTo)
+    {
         if(!canIMoveBasic(this.whereAmI, moveTo))
         {
             return false;

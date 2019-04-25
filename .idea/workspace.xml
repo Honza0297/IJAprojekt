@@ -2,29 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57ed5b33-d99f-44f7-a19b-3685e6883007" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/homework2/game/figures/Bishop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homework2/game/figures/King.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homework2/game/figures/Knight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homework2/game/figures/Pawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homework2/game/figures/Queen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/GameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/GameFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/Homework2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/Homework2Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/common/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/common/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/common/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/common/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/common/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/common/Figure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/common/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/common/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/common/Invoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/common/Invoker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/BoardField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/BoardField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/CheckerGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/CheckerGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/ChessGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/commands/MoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/commands/MoveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/commands/MoveInvoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/commands/MoveInvoker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/figures/CheckerDisk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/CheckerDisk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/figures/FigureBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/figures/Pawn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/figures/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/GameFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/Homework2Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Field$Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Field.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Figure.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Invoker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/BoardField.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/CheckerGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/ChessGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/commands/MoveCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/commands/MoveInvoker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/figures/CheckerDisk.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/figures/FigureBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/figures/Pawn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/figures/Rook$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/figures/Rook.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/GameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/GameFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/Homework2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/Homework2Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/game/CheckerGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/CheckerDisk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Rook.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/King.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+            <state relative-caret-position="680">
+              <caret line="41" column="9" selection-start-line="38" selection-start-column="7" selection-end-line="41" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -50,8 +58,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Pawn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+            <state relative-caret-position="629">
+              <caret line="38" column="100" selection-start-line="38" selection-start-column="100" selection-end-line="38" selection-end-column="100" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,8 +82,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Queen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="595">
+              <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Knight.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/homework2/game/BoardField.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3094">
+              <caret line="197" column="21" selection-start-line="197" selection-start-column="21" selection-end-line="197" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,53 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Rook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/homework2/game/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/homework2/game/BoardField.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/homework2/game/CheckerGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/homework2/game/ChessGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+            <state relative-caret-position="1190">
+              <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,8 +130,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/homework2/GameFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="68">
+              <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/homework2/Homework2Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2006">
+              <caret line="126" column="6" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,11 +148,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/homework2/Homework2Test.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Bishop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="51" column="10" lean-forward="true" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+            <state relative-caret-position="578">
+              <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,29 +174,30 @@
         <option value="$PROJECT_DIR$/src/project/game/BoardField.java" />
         <option value="$PROJECT_DIR$/src/project/Knight.java" />
         <option value="$PROJECT_DIR$/src/project/game/figures/Knight.java" />
-        <option value="$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java" />
-        <option value="$PROJECT_DIR$/src/homework2/game/figures/Knight.java" />
         <option value="$PROJECT_DIR$/src/homework2/game/commands/MoveCommand.java" />
         <option value="$PROJECT_DIR$/src/homework2/game/commands/MoveInvoker.java" />
-        <option value="$PROJECT_DIR$/src/homework2/game/figures/Bishop.java" />
         <option value="$PROJECT_DIR$/src/homework2/game/figures/CheckerDisk.java" />
-        <option value="$PROJECT_DIR$/src/homework2/game/figures/King.java" />
-        <option value="$PROJECT_DIR$/src/homework2/game/figures/Pawn.java" />
-        <option value="$PROJECT_DIR$/src/homework2/game/figures/Queen.java" />
-        <option value="$PROJECT_DIR$/src/homework2/game/figures/Rook.java" />
         <option value="$PROJECT_DIR$/src/homework2/game/Board.java" />
         <option value="$PROJECT_DIR$/src/homework2/game/BoardField.java" />
         <option value="$PROJECT_DIR$/src/homework2/game/CheckerGame.java" />
         <option value="$PROJECT_DIR$/src/homework2/game/ChessGame.java" />
+        <option value="$PROJECT_DIR$/src/homework2/game/figures/Rook.java" />
+        <option value="$PROJECT_DIR$/src/homework2/game/figures/King.java" />
+        <option value="$PROJECT_DIR$/src/homework2/game/figures/Knight.java" />
+        <option value="$PROJECT_DIR$/src/homework2/game/figures/Queen.java" />
         <option value="$PROJECT_DIR$/src/homework2/GameFactory.java" />
         <option value="$PROJECT_DIR$/src/homework2/Homework2Test.java" />
+        <option value="$PROJECT_DIR$/src/homework2/game/figures/Pawn.java" />
+        <option value="$PROJECT_DIR$/src/homework2/game/figures/Bishop.java" />
+        <option value="$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="952" />
-    <option name="width" value="974" />
-    <option name="height" value="1045" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="977" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -198,6 +207,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
@@ -252,7 +262,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -262,7 +271,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556201350008" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556213356012" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/junit-4.12.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -324,7 +333,9 @@
       <option name="presentableId" value="Default" />
       <updated>1555074175225</updated>
       <workItem from="1555074178362" duration="220000" />
-      <workItem from="1556200006373" duration="1329000" />
+      <workItem from="1556200006373" duration="1932000" />
+      <workItem from="1556210729579" duration="2609000" />
+      <workItem from="1556223335263" duration="14000" />
     </task>
     <servers />
   </component>
@@ -334,12 +345,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1549000" />
+    <option name="totallyTimeSpent" value="4775000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="863" y="0" width="882" height="946" extended-state="0" />
+    <frame x="-7" y="-7" width="1753" height="954" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25606796" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12861358" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -347,7 +358,7 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32928312" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32925338" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -357,7 +368,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32925338" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32806805" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -375,149 +386,30 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/CheckerDisk.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/FigureBase.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Rook.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Bishop.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/common/Field.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/common/Figure.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/ChessGame.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/BoardField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/CheckerGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/King.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/Field.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/CheckerGame.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/Pawn.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/CheckerDisk.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/MoveInvoker.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/Rook.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/Bishop.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/BoardField.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/GameFactory.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/Knight.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/common/Field.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/CheckerGame.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Pawn.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/CheckerDisk.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/commands/MoveInvoker.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Rook.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Bishop.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/BoardField.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/GameFactory.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Knight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Knight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/game/figures/FigureBase.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/common/Figure.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/game/ChessGame.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/game/figures/King.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/Field.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/CheckerGame.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/Pawn.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/CheckerDisk.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/MoveInvoker.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/Rook.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/Bishop.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/BoardField.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/Knight.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/common/Field.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/game/CheckerGame.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Pawn.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/game/figures/CheckerDisk.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/game/commands/MoveInvoker.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Rook.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Bishop.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/game/BoardField.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/GameFactory.java" />
+    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Knight.java" />
     <entry file="file://$PROJECT_DIR$/src/homework2/common/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/common/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
@@ -562,30 +454,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Bishop.java">
+    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/CheckerDisk.java" />
+    <entry file="file://$PROJECT_DIR$/src/homework2/game/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/homework2/game/CheckerGame.java" />
+    <entry file="file://$PROJECT_DIR$/src/homework2/game/ChessGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/CheckerDisk.java">
+    <entry file="file://$PROJECT_DIR$/src/homework2/common/Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/King.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+        <state relative-caret-position="680">
+          <caret line="41" column="9" selection-start-line="38" selection-start-column="7" selection-end-line="41" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -594,8 +492,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Pawn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+        <state relative-caret-position="629">
+          <caret line="38" column="100" selection-start-line="38" selection-start-column="100" selection-end-line="38" selection-end-column="100" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -604,8 +502,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Queen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="595">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Knight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/homework2/game/BoardField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3094">
+          <caret line="197" column="21" selection-start-line="197" selection-start-column="21" selection-end-line="197" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -614,45 +532,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Rook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/game/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/game/BoardField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/game/CheckerGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/game/ChessGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+        <state relative-caret-position="1190">
+          <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -661,18 +542,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/homework2/GameFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="68">
+          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/homework2/Homework2Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2006">
+          <caret line="126" column="6" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/Homework2Test.java">
+    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Bishop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="51" column="10" lean-forward="true" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+        <state relative-caret-position="578">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
