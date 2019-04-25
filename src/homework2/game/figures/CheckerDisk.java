@@ -1,7 +1,8 @@
-package project.game.figures;
+package homework2.game.figures;
 
-import project.common.Field;
-import project.common.Figure;
+
+import homework2.common.Field;
+import homework2.common.Figure;
 
 public class CheckerDisk extends FigureBase implements Figure
 {
@@ -51,7 +52,7 @@ public class CheckerDisk extends FigureBase implements Figure
     public boolean move(Field moveTo)
     {
 
-        if(!checkIfCanMoveBasic(this.whereAmI, moveTo))
+        if(!canIMoveBasic(this.whereAmI, moveTo))
         {
             return false;
         }
@@ -88,9 +89,10 @@ public class CheckerDisk extends FigureBase implements Figure
         }
     }
 
-
-
-
+    //NOTE: Deprecated in checker for now.
+    public boolean canIMoveTo(Field moveTo) {
+        return false;
+    }
 
 
 }

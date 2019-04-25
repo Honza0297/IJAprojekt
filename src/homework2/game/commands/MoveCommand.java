@@ -1,8 +1,9 @@
-package project.game.commands;
+package homework2.game.commands;
 
-import project.common.Command;
-import project.common.Field;
-import project.common.Figure;
+
+import homework2.common.Command;
+import homework2.common.Field;
+import homework2.common.Figure;
 
 public class MoveCommand implements Command {
     private Figure moving;

@@ -1,4 +1,4 @@
-package project.common;
+package homework2.common;
 
 public interface Command {
     public boolean execute();

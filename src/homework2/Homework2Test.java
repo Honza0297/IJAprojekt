@@ -2,12 +2,13 @@
  * IJA 2018/19 - Testovaci trida pro ukol 2.
  */
 
-package project;
+package homework2;
 
-import project.common.Field;
-import project.common.Figure;
-import project.common.Game;
-import project.game.Board;
+
+import homework2.common.Field;
+import homework2.common.Figure;
+import homework2.common.Game;
+import homework2.game.Board;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

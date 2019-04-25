@@ -1,14 +1,15 @@
-package project.game;
+package homework2.game;
 
-import project.common.Field;
-import project.common.Figure;
+
+import homework2.common.Field;
+import homework2.common.Figure;
 
 public class BoardField implements Field {
     private boolean empty;
     private Figure currentDisk;
-    private Field[] surrounding;
-    public int myCol;
-    public int myRow;
+    public Field[] surrounding;
+    private int myCol;
+    private int myRow;
 
     /**
      * Constructor. Sets proper coordinates.

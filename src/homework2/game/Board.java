@@ -1,6 +1,7 @@
-package project.game;
+package homework2.game;
 
-import project.common.Field;
+
+import homework2.common.Field;
 
 public class Board
 {

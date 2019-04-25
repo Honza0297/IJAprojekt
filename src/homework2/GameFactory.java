@@ -1,9 +1,10 @@
-package project;
+package homework2;
 
-import project.common.Game;
-import project.game.Board;
-import project.game.CheckerGame;
-import project.game.ChessGame;
+
+import homework2.common.Game;
+import homework2.game.Board;
+import homework2.game.CheckerGame;
+import homework2.game.ChessGame;
 
 public abstract class GameFactory {
     public GameFactory()

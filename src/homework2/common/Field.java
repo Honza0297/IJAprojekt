@@ -1,7 +1,8 @@
-package project.common;
+package homework2.common;
 
 public interface Field
 {
+    Field[] surrounding = new Field[8];
 
     void addNextField(Field.Direction dirs, Field field);
     Figure get();
@@ -24,7 +25,7 @@ public interface Field
         D, L, LD, LU, R, RD, RU, U
     }
 
-    static Field.Direction valueOf(java.lang.String name)
+    static Field.Direction valueOf(String name)
     {
         //Vrátí enum konstantu s daným jménem
         return null;

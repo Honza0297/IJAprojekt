@@ -1,7 +1,8 @@
-package project.game.figures;
+package homework2.game.figures;
 
-import project.common.Field;
-import project.common.Figure;
+
+import homework2.common.Field;
+import homework2.common.Figure;
 
 public class FigureBase {
     protected boolean isItWhite;
@@ -56,7 +57,9 @@ public class FigureBase {
         return this.whereAmI;
     }
 
-    protected boolean checkIfCanMoveBasic(Field from, Field moveTo)
+    //Common funcionality derived from canIMove - no redundant code.
+    // Always called from figure-specific canIMove
+    protected boolean canIMoveBasic(Field from, Field moveTo)
     {
         if(this.whereAmI == moveTo)
         {

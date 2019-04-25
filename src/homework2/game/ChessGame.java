@@ -1,13 +1,14 @@
-package project.game;
+package homework2.game;
 
-import project.common.Command;
-import project.common.Field;
-import project.common.Figure;
-import project.common.Game;
-import project.game.commands.MoveCommand;
-import project.game.commands.MoveInvoker;
-import project.game.figures.Pawn;
-import project.game.figures.Rook;
+
+import homework2.common.Command;
+import homework2.common.Field;
+import homework2.common.Figure;
+import homework2.common.Game;
+import homework2.game.commands.MoveCommand;
+import homework2.game.commands.MoveInvoker;
+import homework2.game.figures.Pawn;
+import homework2.game.figures.Rook;
 
 public class ChessGame implements Game {
 
@@ -34,7 +35,6 @@ public class ChessGame implements Game {
             board.getField(c, max-1).put(new Pawn(false));
         }
     }
-
 
     @Override
     public boolean move(Figure figure, Field field) {

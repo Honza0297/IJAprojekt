@@ -1,7 +1,7 @@
-package project.game.commands;
+package homework2.game.commands;
 
-import project.common.Command;
-import project.common.Invoker;
+import homework2.common.Command;
+import homework2.common.Invoker;
 
 import java.util.Stack;
 
