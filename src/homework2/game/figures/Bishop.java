@@ -33,7 +33,7 @@ public class Bishop extends FigureBase implements Figure
             return false;
         }
         //check if moveTo is empty or with enemy
-        if(moveTo.isEmpty() && )
+      return false;
     }
 
     //checked direction and isempty of all field except moveTo i

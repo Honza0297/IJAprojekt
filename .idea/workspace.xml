@@ -2,37 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57ed5b33-d99f-44f7-a19b-3685e6883007" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/GameFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/Homework2Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Command.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Field$Direction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Field.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Figure.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/common/Invoker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/BoardField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/CheckerGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/ChessGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/commands/MoveCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/commands/MoveInvoker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/figures/CheckerDisk.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/figures/FigureBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/figures/Pawn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/figures/Rook$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IJAproj/project/game/figures/Rook.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homework2/GameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/GameFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homework2/Homework2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/Homework2Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homework2/game/CheckerGame.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/CheckerDisk.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/homework2/game/figures/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/homework2/game/figures/Rook.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
@@ -148,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Bishop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+            <state relative-caret-position="202">
+              <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -188,8 +158,8 @@
         <option value="$PROJECT_DIR$/src/homework2/GameFactory.java" />
         <option value="$PROJECT_DIR$/src/homework2/Homework2Test.java" />
         <option value="$PROJECT_DIR$/src/homework2/game/figures/Pawn.java" />
-        <option value="$PROJECT_DIR$/src/homework2/game/figures/Bishop.java" />
         <option value="$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java" />
+        <option value="$PROJECT_DIR$/src/homework2/game/figures/Bishop.java" />
       </list>
     </option>
   </component>
@@ -335,7 +305,7 @@
       <workItem from="1555074178362" duration="220000" />
       <workItem from="1556200006373" duration="1932000" />
       <workItem from="1556210729579" duration="2609000" />
-      <workItem from="1556223335263" duration="14000" />
+      <workItem from="1556223335263" duration="118000" />
     </task>
     <servers />
   </component>
@@ -345,10 +315,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4775000" />
+    <option name="totallyTimeSpent" value="4879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1753" height="954" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12861358" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -557,20 +528,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Bishop.java">
+    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/FigureBase.java">
+    <entry file="file://$PROJECT_DIR$/src/homework2/game/figures/Bishop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="202">
+          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
