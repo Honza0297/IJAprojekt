@@ -26,17 +26,31 @@ public class Bishop extends FigureBase implements Figure
         return "Bishop["+color+"]"+this.whereAmI.getCol()+":"+this.whereAmI.getRow();
     }
 
-   //TODO
+    public boolean lal()
+    {
+        return false;
+    }
+
+   //done
     public boolean move(Field moveTo) {
         if(!canIMoveTo(moveTo))
         {
             return false;
         }
-        //check if moveTo is empty or with enemy
-      return false;
+        if(moveTo.containsEnemy(this.isWhite()))
+        {
+            moveTo.kill();
+        }
+        if(moveTo.isEmpty())
+        {
+            this.whereAmI.remove(this);
+            moveTo.put(this);
+            return true;
+        }
+        return false;
     }
 
-    //checked direction and isempty of all field except moveTo i
+    //checked direction and is empty of all field except moveTo i
     public boolean canIMoveTo(Field moveTo)
     {
         if(!canIMoveBasic(whereAmI, moveTo))

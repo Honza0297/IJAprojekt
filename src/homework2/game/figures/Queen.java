@@ -25,8 +25,23 @@ public class Queen extends FigureBase implements Figure {
         return "Queen["+color+"]"+this.whereAmI.getCol()+":"+this.whereAmI.getRow();
     }
 
-    //TODO
-    public boolean move(Field moveTo) {
+    //
+    public boolean move(Field moveTo)
+    {
+        if(!canIMoveTo(moveTo))
+        {
+            return false;
+        }
+        if(moveTo.containsEnemy(this.isWhite()))
+        {
+            moveTo.kill();
+        }
+        if(moveTo.isEmpty())
+        {
+            this.whereAmI.remove(this);
+            moveTo.put(this);
+            return true;
+        }
         return false;
     }
 

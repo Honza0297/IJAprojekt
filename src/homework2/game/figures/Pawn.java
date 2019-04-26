@@ -32,6 +32,16 @@ public class Pawn extends FigureBase implements Figure {
         {
             return false;
         }
+        if(moveTo.containsEnemy(this.isWhite()))
+        {
+            moveTo.kill();
+        }
+        if(moveTo.isEmpty())
+        {
+            this.whereAmI.remove(this);
+            moveTo.put(this);
+            return true;
+        }
         return false;
     }
 

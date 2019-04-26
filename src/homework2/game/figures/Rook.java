@@ -37,20 +37,17 @@ public class Rook extends FigureBase implements Figure {
         }
 
         //can move and possibly kill
-        if(!moveTo.isEmpty())
+        if(moveTo.containsEnemy(this.isWhite()))
         {
-            if(this.isItWhite != moveTo.get().isWhite)
-            {
-                moveTo.kill();
-            }
-            else
-            {
-                return false;
-            }
+            moveTo.kill();
         }
-        this.whereAmI.remove(this);
-        moveTo.put(this);
-        return true;
+        if(moveTo.isEmpty())
+        {
+            this.whereAmI.remove(this);
+            moveTo.put(this);
+            return true;
+        }
+        return false;
     }
 
     //Check

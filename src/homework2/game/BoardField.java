@@ -138,6 +138,12 @@ public class BoardField implements Field {
         return this.myCol;
     }
 
+    //checks if the field contains a figure of the opposite color of isWhite
+    public boolean containsEnemy(boolean isWhite) {
+        return !this.isEmpty() && this.get().isWhite() != isWhite;
+    }
+
+
     @Override
     public void kill() {
         if(this.empty)
@@ -146,6 +152,8 @@ public class BoardField implements Field {
         }
         this.currentDisk.setInGame(false);
         this.currentDisk.setPosition(null);
+        this.currentDisk = null;
+        this.empty = true;
     }
 
     /**

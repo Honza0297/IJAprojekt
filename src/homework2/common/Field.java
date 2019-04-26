@@ -13,6 +13,7 @@ public interface Field
     Direction getDirection(Field field);
     int getRow();
     int getCol();
+    boolean containsEnemy(boolean isWhite);
 
     void kill();
 
