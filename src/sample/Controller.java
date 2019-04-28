@@ -35,8 +35,8 @@ public class Controller implements Initializable
     @FXML
     public void handleButtonClick(ActionEvent actionEvent)
     {
-        Image image = new Image("WhitePawn.png");
-        obr1.setImage(image);
+        //Image image = new Image("WhitePawn.png");
+
     }
 
     @Override
@@ -47,5 +47,8 @@ public class Controller implements Initializable
         black.setImage(new Image("WhitePawn.png"));
         BackgroundImage bi = new BackgroundImage(new Image("whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         grid.setBackground(new Background(bi));
+        obr1.setImage(new Image("WhitePawn.png"));
+        GridPane.setColumnIndex(obr1, 5);
+
     }
 }

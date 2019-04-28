@@ -70,11 +70,7 @@
                   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="-51.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="0.0" prefHeight="100.0" prefWidth="0.0" GridPane.rowIndex="1">
-               <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="-51.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
+            <ImageView fx:id="obr1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
                 </children>
             </GridPane>
       </children>
