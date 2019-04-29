@@ -8,7 +8,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
+import java.awt.*;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable
@@ -24,6 +27,9 @@ public class Controller implements Initializable
 
     @FXML
     private GridPane grid;
+
+    @FXML
+    private Button pokusbutton;
 /*
     @FXML
     public void initialize()
@@ -35,8 +41,7 @@ public class Controller implements Initializable
     @FXML
     public void handleButtonClick(ActionEvent actionEvent)
     {
-        //Image image = new Image("WhitePawn.png");
-
+        GridPane.setColumnIndex(obr1, 7);
     }
 
     @Override
@@ -48,7 +53,23 @@ public class Controller implements Initializable
         BackgroundImage bi = new BackgroundImage(new Image("whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         grid.setBackground(new Background(bi));
         obr1.setImage(new Image("WhitePawn.png"));
+
         GridPane.setColumnIndex(obr1, 5);
+
+
+
+        List<ImageView> figures = new ArrayList<>();
+
+        for(int i = 0; i < 8; i++)
+        {
+            ImageView image = new ImageView();
+            image.setImage(new Image("WhitePawn.png"));
+            image.setPreserveRatio(true);
+            image.setFitHeight(100);
+            grid.add(image, i,6);
+            figures.add(image);
+        }
+
 
     }
 }
