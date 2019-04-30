@@ -34,8 +34,20 @@ public class SecondViewController implements Initializable {
     @FXML
     private GridPane grid;
 
-    private Image whitePawn = new Image("whitePawn.png");
+    private Image blackPawn = new Image("BlackPawn.png");
+    private Image blackRook = new Image("BlackRook.png");
+    private Image blackBishop = new Image("BlackBishop.png");
+    private Image blackKnight = new Image("BlackKnight.png");
+    private Image blackKing = new Image("BlackKing.png");
+    private Image blackQueen = new Image("BlackQueen.png");
 
+
+    private Image whitePawn = new Image("WhitePawn.png");
+    private Image whiteRook = new Image("WhiteRook.png");
+    private Image whiteBishop = new Image("WhiteBishop.png");
+    private Image whiteKnight = new Image("WhiteKnight.png");
+    private Image whiteKing = new Image("WhiteKing.png");
+    private Image whiteQueen = new Image("WhiteQueen.png");
 
 
     public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane) {
@@ -129,17 +141,82 @@ public class SecondViewController implements Initializable {
         //manager = new ChessManager(grid, hra, board);
         BackgroundImage bi = new BackgroundImage(new Image("whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         grid.setBackground(new Background(bi));
-        for(int i = 0; i < 8; i++)
+        for(int row = 0; row < 8; row++)
         {
-            for(int j = 0; j < 8; j++)
+            for(int col = 0; col < 8; col++)
             {
                 ImageView im = new ImageView();
-                grid.add(im,i,j);
+                grid.add(im,col, row);
                 //GridPane.setRowIndex(im, i);
                 //GridPane.setColumnIndex(im, j);
                 im.setFitHeight(80);
                 im.setFitWidth(80);
-                im.setImage(whitePawn);
+
+                switch(row){
+                    case 0:
+                        switch(col)
+                        {
+                            case 0:
+                            case 7:
+                                im.setImage(whiteRook);
+                                break;
+                            case 1:
+                            case 6:
+                                im.setImage(whiteKnight);
+                                break;
+                            case 2:
+                            case 5:
+                                im.setImage(whiteBishop);
+                                break;
+                            case 4:
+                                im.setImage(whiteQueen);
+                                break;
+                            case 3:
+                                im.setImage(whiteKing);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case 1:
+                        im.setImage(whitePawn);
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                        break;
+                    case 6:
+                        im.setImage(blackPawn);
+                        break;
+                    case 7:
+                        switch(col)
+                        {
+                            case 0:
+                            case 7:
+                                im.setImage(blackRook);
+                                break;
+                            case 1:
+                            case 6:
+                                im.setImage(blackKnight);
+                                break;
+                            case 2:
+                            case 5:
+                                im.setImage(blackBishop);
+                                break;
+                            case 4:
+                                im.setImage(blackQueen);
+                                break;
+                            case 3:
+                                im.setImage(blackKing);
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         setBasicPositions();
