@@ -39,12 +39,19 @@ public class ChessGame implements Game {
     }
 
     @Override
-    public boolean move(Figure figure, Field field) {
+    public Command move(Figure figure, Field field) {
         Command cmd = new MoveCommand(figure, figure.getPositionField(), field, field.get());
         return invoker.execute(cmd);
     }
 
     @Override
     public void undo() { invoker.undo();
+    }
+
+    @Override
+    public Command nextMove() {
+        return null;
+        //todo: nextmove si getne z parseru dalsi tah a provede ho.
+        //TODO DENNYBERRY
     }
 }

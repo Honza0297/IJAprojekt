@@ -1,6 +1,6 @@
 package project.common;
 
 public interface Invoker {
-   public boolean execute(Command cmd);
+   public Command execute(Command cmd);
    public void undo();
 }

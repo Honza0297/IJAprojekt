@@ -14,15 +14,18 @@ public class MoveInvoker implements Invoker
     }
 
 
-    public boolean execute(Command cmd) {
+    public Command execute(Command cmd) {
 
         boolean succeeded = cmd.execute();
         if(succeeded)
         {
             undoStack.push(cmd);
+            return cmd;
         }
-        return succeeded;
-
+        else
+        {
+            return null;
+        }
     }
 
     public void undo() {
