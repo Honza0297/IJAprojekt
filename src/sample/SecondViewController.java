@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import project.GameFactory;
+import project.ImpossibleMoveException;
 import project.common.Command;
 import project.common.Game;
 import project.game.Board;
@@ -73,16 +74,19 @@ public class SecondViewController implements Initializable {
     @FXML
     public void NextMoveButtonCLicked(ActionEvent e)
     {
-        Command cmd = hra.nextMove();
-
-        if(cmd != null)
+        try
         {
-            if(cmd.getTo() == null)
+            Command cmd = hra.nextMove();
+
+            if (cmd == null)
             {
-                ;
-                //todo  handle error
+                return; //todo handle no nextMove
             }
             move(convert(cmd, false));
+        }
+        catch (ImpossibleMoveException ime)
+        {
+            //todo handle it
         }
     }
 

@@ -35,6 +35,11 @@ public class InnerGameNotation
     {
         return gameNotation.get(indexOfMove);
     }
+
+    public int GetSize()
+    {
+        return gameNotation.size();
+    }
 }
 /*
         fieldFrom.add(from);

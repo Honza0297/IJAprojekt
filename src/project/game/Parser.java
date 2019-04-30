@@ -12,7 +12,7 @@ public class Parser
     String pattern1 = "^";
     String patternShort = "\\. ([S,K,V,D,J])?([a-h])([1-8]) ([S,K,V,D,J])?([a-h])([1-8])$";
     String patternLong = "\\. ([S,K,V,D,J])?([a-h])([1-8])([a-h])([1-8]) ([S,K,V,D,J])?([a-h])([1-8])([a-h])([1-8])$";
-
+    //todo promena pěšec ->??
     public Parser(IReaderWriter readerWriter, Board board)
     {
         this.readerWriter = readerWriter;
@@ -148,6 +148,6 @@ public class Parser
         if(fromGroup != null)
             return fromGroup.charAt(0);
         else
-            return 'n'; //todo ten typ nejak upravit
+            return 'P'; //pesak
     }
 }

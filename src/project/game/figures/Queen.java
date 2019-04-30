@@ -63,4 +63,10 @@ public class Queen extends FigureBase implements Figure
         }
         return true;
     }
+
+    @Override
+    public char getType()
+    {
+        return 'D';
+    }
 }

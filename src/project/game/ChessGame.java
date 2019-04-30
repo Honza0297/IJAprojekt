@@ -1,6 +1,7 @@
 package project.game;
 
 
+import project.ImpossibleMoveException;
 import project.common.Command;
 import project.common.Field;
 import project.common.Figure;
@@ -10,11 +11,15 @@ import project.game.commands.MoveInvoker;
 import project.game.figures.Pawn;
 import project.game.figures.Rook;
 
+import java.util.List;
+
 public class ChessGame implements Game {
 
     private Board chessBoard;
     MoveInvoker invoker;
     private Parser parser;
+    private InnerGameNotation gameNotation;
+    private int moveIndex; //cislo aktualniho tahu
 
     public ChessGame(Board board)
     {
@@ -23,6 +28,10 @@ public class ChessGame implements Game {
 
         invoker = new MoveInvoker();
         parser = new Parser(new TestingReaderWriter(), chessBoard); //todo zmenit TestingReaderWriter
+        gameNotation = parser.ParseGameToInner(); //fixme
+        if(gameNotation == null)
+            System.out.println("Nepovedlo se nacist notaci!"); //fixme
+        moveIndex = 0;
     }
 
     private void SetBoard(Board board) {
@@ -48,10 +57,41 @@ public class ChessGame implements Game {
     public void undo() { invoker.undo();
     }
 
+    /**
+     * Increases moveIndex, gets the move from gameNotation, finds the right figure to do the move and does the move
+     * @return Command with the move or null if next move is not possible (there are no more notated moves)
+     * @throws ImpossibleMoveException in case of no found figure to do the move from gameNotation
+     */
     @Override
-    public Command nextMove() {
-        return null;
-        //todo: nextmove si getne z parseru dalsi tah a provede ho.
-        //TODO DENNYBERRY
+    public Command nextMove() throws ImpossibleMoveException
+    {
+        if(++moveIndex >= gameNotation.GetSize())
+            return null;
+
+        InnerMoveNotation moveNotation = gameNotation.GetMove(++moveIndex);
+
+        if (moveNotation.fieldFrom != null)
+        {
+            Command cmd = move(moveNotation.fieldFrom.get(), moveNotation.fieldTo);
+            if(cmd == null)
+                throw new ImpossibleMoveException(moveIndex);
+            else
+                return cmd;
+        }
+        else
+        {
+            List<Figure> figures = chessBoard.GetAllFigures(moveNotation.isWhite);
+            for (Figure figure : figures)
+            {
+                if (moveNotation.movingFigureType == figure.getType())
+                {
+                    Command cmd = move(figure, moveNotation.fieldTo);
+                    if (cmd != null) //pokud se tah povedl, vratim ho
+                        return cmd;
+                }
+            }
+            throw new ImpossibleMoveException(moveIndex);
+        }
     }
+
 }

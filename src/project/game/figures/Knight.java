@@ -55,4 +55,10 @@ public class Knight extends FigureBase implements Figure
        int differenceCol = Math.abs(this.whereAmI.getCol() - moveTo.getCol());
        return (differenceCol == 2 && differenceRow == 1) || (differenceCol == 1 && differenceRow == 2);
     }
+
+    @Override
+    public char getType()
+    {
+        return 'J';
+    }
 }

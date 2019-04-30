@@ -80,4 +80,10 @@ public class Rook extends FigureBase implements Figure
         return true;
     }
 
+    @Override
+    public char getType()
+    {
+        return 'V';
+    }
+
 }

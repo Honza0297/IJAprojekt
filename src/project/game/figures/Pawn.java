@@ -81,4 +81,10 @@ public class Pawn extends FigureBase implements Figure
             }
         }
     }
+
+    @Override
+    public char getType()
+    {
+        return 'P';
+    }
 }

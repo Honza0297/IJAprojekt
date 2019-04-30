@@ -68,4 +68,10 @@ public class King extends FigureBase implements Figure
         }
         return contains;
     }
+
+    @Override
+    public char getType()
+    {
+        return 'K';
+    }
 }
