@@ -35,4 +35,10 @@ public class MoveCommand implements Command {
     public Field getTo() {
         return to;
     }
+
+    @Override
+    public Field getFrom()
+    {
+        return from;
+    }
 }

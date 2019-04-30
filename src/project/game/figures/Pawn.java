@@ -54,7 +54,7 @@ public class Pawn extends FigureBase implements Figure
         {
             return false;
         }
-        //Check if going only by one row
+        //Check if going only by one row //TODO BERRY prvni tah muze o 2 policka
         if((isWhite() && (moveTo.getRow() != this.whereAmI.getRow()+1)) ||
                 (!isWhite() && (moveTo.getRow() != this.whereAmI.getRow()-1)))
         {

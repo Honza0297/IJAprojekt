@@ -8,8 +8,7 @@ import project.common.Figure;
 import project.common.Game;
 import project.game.commands.MoveCommand;
 import project.game.commands.MoveInvoker;
-import project.game.figures.Pawn;
-import project.game.figures.Rook;
+import project.game.figures.*;
 
 import java.util.List;
 
@@ -36,6 +35,7 @@ public class ChessGame implements Game {
 
     private void SetBoard(Board board) {
         int max = board.getSize();
+        /*
         board.getField(1, 1).put(new Rook(true));
         board.getField(max, 1).put(new Rook(true));
         board.getField(1, max).put(new Rook(false));
@@ -44,6 +44,77 @@ public class ChessGame implements Game {
         {
             board.getField(c, 2).put(new Pawn(true));
             board.getField(c, max-1).put(new Pawn(false));
+        }*/
+        for(int row = 1; row <= max; row++)
+        {
+            for(int col = 1; col <= max; col++)
+            {
+                switch(row){
+                    case 1:
+                        switch(col)
+                        {
+                            case 1:
+                            case 8:
+                                board.getField(col, row).put(new Rook(true));
+                                break;
+                            case 2:
+                            case 7:
+                                board.getField(col, row).put(new Knight(true));
+                                break;
+                            case 3:
+                            case 6:
+                                board.getField(col, row).put(new Bishop(true));
+                                break;
+                            case 5:
+                                board.getField(col, row).put(new Queen(true));
+                                break;
+                            case 4:
+                                board.getField(col, row).put(new King(true));
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case 2:
+                        board.getField(col, row).put(new Pawn(true));
+                        break;
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                        break;
+                    case 7:
+                        board.getField(col, row).put(new Pawn(false));
+                        break;
+                    case 8:
+                        switch(col)
+                        {
+                            case 1:
+                            case 8:
+                                board.getField(col, row).put(new Rook(false));
+                                break;
+                            case 2:
+                            case 7:
+                                board.getField(col, row).put(new Knight(false));
+                                break;
+                            case 3:
+                            case 6:
+                                board.getField(col, row).put(new Bishop(false));
+                                break;
+                            case 5:
+                                board.getField(col, row).put(new Queen(false));
+                                break;
+                            case 4:
+                                board.getField(col, row).put(new King(false));
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 
@@ -65,10 +136,10 @@ public class ChessGame implements Game {
     @Override
     public Command nextMove() throws ImpossibleMoveException
     {
-        if(++moveIndex >= gameNotation.GetSize())
+        if(moveIndex >= gameNotation.GetSize()-1)
             return null;
 
-        InnerMoveNotation moveNotation = gameNotation.GetMove(++moveIndex);
+        InnerMoveNotation moveNotation = gameNotation.GetMove(moveIndex++);
 
         if (moveNotation.fieldFrom != null)
         {
