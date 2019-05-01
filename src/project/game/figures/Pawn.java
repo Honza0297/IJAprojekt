@@ -47,7 +47,7 @@ public class Pawn extends FigureBase implements Figure
     }
 
     //both two possibilities checked (straight and diagonal)
-    //NOTE Only here canIMove checks even moveTo (because it is necessary to check legality of move)
+    //NOTE Only here canIMove checks even moveTo (because it is necessary to check legality of moveGUI)
     public boolean canIMoveTo(Field moveTo) {
         //common
         if(!canIMoveBasic(this.whereAmI, moveTo))

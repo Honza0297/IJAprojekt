@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -21,7 +22,7 @@ import project.game.Board;
 
 public class SecondViewController implements Initializable {
 
-    private Game hra;
+    private Game game;
     private Board board;
     //private ChessManager manager;
     @FXML
@@ -34,6 +35,8 @@ public class SecondViewController implements Initializable {
     private Button StopButton;
     @FXML
     private GridPane grid;
+    @FXML
+    private ListView movesListView;
 
     private Image blackPawn = new Image("BlackPawn.png");
     private Image blackRook = new Image("BlackRook.png");
@@ -88,16 +91,21 @@ public class SecondViewController implements Initializable {
     @FXML
     public void NextMoveButtonCLicked(ActionEvent e)
     {
+        DoNextMove();
+    }
+
+    private void DoNextMove()
+    {
         try
         {
-            Command cmd = hra.nextMove();
+            Command cmd = game.nextMove();
             if (cmd == null)
             {
                 System.out.println("dalsi tah neni");
                 return; //todo handle no nextMove
             }
-            move(cmd);
-           // move(convert(cmd, false));
+            moveGUI(cmd);
+           // moveGUI(convert(cmd, false));
         }
         catch (ImpossibleMoveException ime)
         {
@@ -107,7 +115,7 @@ public class SecondViewController implements Initializable {
     }
 
     private Command convert(Command cmd, boolean undo) {
-        //todo berry - move command predela na screen commmand - souradnice
+        //todo berry - moveGUI command predela na screen commmand - souradnice
         return null;
     }
     private void setBasicPositions()
@@ -193,43 +201,60 @@ public class SecondViewController implements Initializable {
     @FXML
     public void UndoMoveButtonClicked(ActionEvent e)
     {
+        DoUndoMove();
     }
 
     @FXML
-    public void poschanged(ActionEvent e)
+    public void MoveFromListViewSelectedHandle(ActionEvent e)
     {
-       /*ImageView temp = (ImageView) getNodeByRowColumnIndex(0,0,grid);*/
-       // manager.move(new Coordinates(0,0), new Coordinates(1,1));
-        //anager.move(1,1);
+        int indexToGo = 2 * movesListView.getSelectionModel().getSelectedIndex();
+        System.out.println("vybrano: " + Integer.toString(indexToGo)); //smazat
 
-
+        if(game.getActualMoveIndex() < indexToGo)
+        {
+            while(game.getActualMoveIndex() < indexToGo)
+                DoNextMove();
+        }
+        else
+        {
+            while(game.getActualMoveIndex() > indexToGo)
+                DoUndoMove();
+        }
     }
 
-    @FXML
-    public void handleaction(ActionEvent e)
+    private void DoUndoMove()
     {
-        //manager.move(new Coordinates(1,1), new Coordinates(0,0));
-       // manager.move(new Coordinates(0,0), new Coordinates(1,1));
+        //todo berry
     }
 
-    public void move(Command cmd)
+    public void moveGUI(Command cmd)
     {
         ImageView nodeTo = (ImageView) getNodeByRowColumnIndex(cmd.getTo().getRow()-1, cmd.getTo().getCol()-1, grid);
         ImageView nodeFrom = (ImageView) getNodeByRowColumnIndex(cmd.getFrom().getRow()-1, cmd.getFrom().getCol()-1, grid);
         nodeTo.setImage(nodeFrom.getImage());
         nodeFrom.setImage(null);
+
         //TODO BERRY
+
+        SetActualMoveOnListView();
     }
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-
         board = new Board(8);
-        hra = GameFactory.createChessGame(board);
-        //manager = new ChessManager(grid, hra, board);
+        game = GameFactory.createChessGame(board);
+        //manager = new ChessManager(grid, game, board);
         BackgroundImage bi = new BackgroundImage(new Image("whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         grid.setBackground(new Background(bi));
 
         setBasicPositions();
+
+        movesListView.setItems(game.getNotation());
+        movesListView.getSelectionModel().select(0);
+    }
+
+    private void SetActualMoveOnListView()
+    {
+        movesListView.getSelectionModel().select(game.getActualMoveIndex()/2);
     }
 }

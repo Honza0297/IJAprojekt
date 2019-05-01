@@ -1,6 +1,7 @@
 package project.game;
 
 
+import javafx.collections.ObservableList;
 import project.ImpossibleMoveException;
 import project.common.Command;
 import project.common.Field;
@@ -118,8 +119,7 @@ public class ChessGame implements Game {
         }
     }
 
-    @Override
-    public Command move(Figure figure, Field field) {
+    private Command move(Figure figure, Field field) {
         Command cmd = new MoveCommand(figure, figure.getPositionField(), field, field.get());
         return invoker.execute(cmd);
     }
@@ -129,9 +129,9 @@ public class ChessGame implements Game {
     }
 
     /**
-     * Increases moveIndex, gets the move from gameNotation, finds the right figure to do the move and does the move
-     * @return Command with the move or null if next move is not possible (there are no more notated moves)
-     * @throws ImpossibleMoveException in case of no found figure to do the move from gameNotation
+     * Increases moveIndex, gets the moveGUI from gameNotation, finds the right figure to do the moveGUI and does the moveGUI
+     * @return Command with the moveGUI or null if next moveGUI is not possible (there are no more notated moves)
+     * @throws ImpossibleMoveException in case of no found figure to do the moveGUI from gameNotation
      */
     @Override
     public Command nextMove() throws ImpossibleMoveException
@@ -165,4 +165,14 @@ public class ChessGame implements Game {
         }
     }
 
+    @Override
+    public int getActualMoveIndex()
+    {
+        return moveIndex;
+    }
+
+    public ObservableList<String> getNotation()
+    {
+        return parser.readerWriter.GetNotation();
+    }
 }

@@ -94,7 +94,7 @@ public class Parser
     /**
      * Converts two innerMoveNotations from InnerGameNotation to string - official notation
      * @param gameNotation Must have not null Fields from and to
-     * @param whiteMoveIndex Index of move of white figure
+     * @param whiteMoveIndex Index of moveGUI of white figure
      * @return string line with long notation
      */
     public String FromInnerMoveNotation(InnerGameNotation gameNotation, int whiteMoveIndex)

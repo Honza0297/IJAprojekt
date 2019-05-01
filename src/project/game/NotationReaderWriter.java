@@ -1,13 +1,16 @@
 package project.game;
 
+import javafx.collections.ObservableList;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Observable;
 
 public class NotationReaderWriter implements IReaderWriter
 {
-    private List<String> file;
+    private ObservableList<String> file;
     private String filenameForReading;
 
     public NotationReaderWriter(String filenameForReading)
@@ -50,12 +53,17 @@ public class NotationReaderWriter implements IReaderWriter
     {
         try
         {
-            file = Files.readAllLines(Paths.get(filenameForReading));
+            file = (ObservableList<String>) Files.readAllLines(Paths.get(filenameForReading));
             return true;
         }
         catch (IOException e)
         {
             return false;
         }
+    }
+
+    public ObservableList<String> GetNotation()
+    {
+        return file;
     }
 }

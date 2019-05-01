@@ -13,7 +13,7 @@ public class InnerGameNotation
     }
 
     /**
-     * Adds move to gameNotation
+     * Adds moveGUI to gameNotation
      * @param move
      */
     public void AddMove(InnerMoveNotation move)
@@ -27,8 +27,8 @@ public class InnerGameNotation
     }
 
     /**
-     * Returns move with the index
-     * @param indexOfMove index of move
+     * Returns moveGUI with the index
+     * @param indexOfMove index of moveGUI
      * @return
      */
     public InnerMoveNotation GetMove(int indexOfMove)

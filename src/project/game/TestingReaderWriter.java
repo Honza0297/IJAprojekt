@@ -1,5 +1,10 @@
 package project.game;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.util.Arrays;
+
 public class TestingReaderWriter implements IReaderWriter
 {
     private String vstup[] = {"1. a3 d6\n",
@@ -20,4 +25,11 @@ public class TestingReaderWriter implements IReaderWriter
         System.out.println(gameNotation);
         return true;
     }
+    public ObservableList<String> GetNotation()
+    {
+        ObservableList<String> ret = FXCollections.observableArrayList();
+        ret.addAll(Arrays.asList(vstup));
+        return ret;
+    }
+
 }

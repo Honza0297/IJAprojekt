@@ -64,7 +64,7 @@ public class FigureBase {
     {
         if(this.whereAmI == moveTo)
         {
-            return false; //Cannot make zero-move (written in forum)
+            return false; //Cannot make zero-moveGUI (written in forum)
         }
         if(!this.inGame)
         {

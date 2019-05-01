@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="work on game handling">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="na tlačítko next se už hýbají figurky podle vstupního programu (žádný vyhazování apod. zatím není)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/common/Figure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/common/Figure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/common/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/common/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/ChessGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/ChessGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/InnerGameNotation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/InnerGameNotation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/figures/Bishop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/figures/Bishop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/figures/King.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/figures/King.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/figures/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/figures/Knight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/figures/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/figures/Pawn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/figures/Queen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/figures/Queen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/figures/Rook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/figures/Rook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/common/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/common/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java/project/common/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/common/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/TestingReaderWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/TestingReaderWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java/project/game/commands/MoveCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/project/game/commands/MoveCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/common/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/common/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/game/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/game/ChessGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/game/IReaderWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/game/IReaderWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/game/InnerGameNotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/game/InnerGameNotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/game/NotationReaderWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/game/NotationReaderWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/game/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/game/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/game/TestingReaderWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/game/TestingReaderWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/project/game/commands/MoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/game/commands/MoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/game/figures/FigureBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/game/figures/FigureBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/project/game/figures/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/game/figures/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project/game/figures/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/project/game/figures/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/SecondView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SecondView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/SecondViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SecondViewController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -76,15 +73,16 @@
     <session id="838510956">
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="31" />
+          <entry key="JAVA" value="37" />
           <entry key="SVG" value="1" />
-          <entry key="XML" value="2" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2242" />
-          <entry key="PLAIN_TEXT" value="34" />
+          <entry key="JAVA" value="2913" />
+          <entry key="PLAIN_TEXT" value="141" />
+          <entry key="XML" value="24" />
         </counts>
       </usages-collector>
     </session>
@@ -97,8 +95,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/project/game/ChessGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="123" selection-start-line="123" selection-end-line="123" />
+            <state relative-caret-position="423">
+              <caret line="170" column="24" selection-start-line="170" selection-start-column="24" selection-end-line="170" selection-end-column="24" />
+              <folding>
+                <element signature="method#SetBoard#0;class#ChessGame#0" />
+                <element signature="method#nextMove#0;class#ChessGame#0" />
+                <element signature="e#6065#6066#0" expanded="true" />
+                <element signature="e#6089#6090#0" expanded="true" />
+                <element signature="e#6045#6046#0" expanded="true" />
+                <element signature="e#6100#6101#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,103 +126,95 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project/game/commands/MoveCommand.java">
+        <entry file="file://$PROJECT_DIR$/src/project/common/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+            <state relative-caret-position="234">
+              <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
               <folding>
-                <element signature="e#502#503#0" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
-                <element signature="e#864#865#0" expanded="true" />
-                <element signature="e#890#891#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project/game/figures/Pawn.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/SecondView.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="56" column="80" selection-start-line="56" selection-start-column="80" selection-end-line="56" selection-end-column="80" />
+            <state relative-caret-position="380">
+              <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/project/game/TestingReaderWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="27" selection-start-line="27" selection-end-line="28" />
               <folding>
-                <element signature="e#2376#2377#0" expanded="true" />
-                <element signature="e#2402#2403#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project/game/BoardField.java">
+        <entry file="file://$PROJECT_DIR$/src/project/game/IReaderWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
-              <folding>
-                <element signature="e#3807#3808#0" expanded="true" />
-                <element signature="e#5218#5219#0" expanded="true" />
-                <element signature="e#5251#5252#0" expanded="true" />
-                <element signature="e#5915#5916#0" expanded="true" />
-                <element signature="e#5948#5949#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="144">
+              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project/game/commands/MoveInvoker.java">
+        <entry file="file://$PROJECT_DIR$/src/project/game/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="735">
+              <caret line="150" column="31" selection-start-line="150" selection-start-column="31" selection-end-line="150" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/project/common/Figure.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/project/game/NotationReaderWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="676">
+              <caret line="64" selection-start-line="64" selection-end-line="65" />
+              <folding>
+                <element signature="e#1442#1443#0" expanded="true" />
+                <element signature="e#1469#1470#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/project/game/TestingReaderWriter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project/game/figures/FigureBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
-              <folding>
-                <element signature="e#923#924#0" expanded="true" />
-                <element signature="e#960#961#0" expanded="true" />
-                <element signature="e#1153#1154#0" expanded="true" />
-                <element signature="e#1190#1191#0" expanded="true" />
-                <element signature="e#1269#1270#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/SecondViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="217" column="89" selection-start-line="217" selection-start-column="89" selection-end-line="217" selection-end-column="89" />
+            <state relative-caret-position="549">
+              <caret line="255" column="42" lean-forward="true" selection-start-line="255" selection-start-column="42" selection-end-line="255" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#getNodeByRowColumnIndex#0;class#SecondViewController#0" />
+                <element signature="e#2558#2559#0" expanded="true" />
+                <element signature="e#2586#2587#0" expanded="true" />
                 <element signature="method#setBasicPositions#0;class#SecondViewController#0" />
-                <element signature="method#poschanged#0;class#SecondViewController#0" />
-                <element signature="method#handleaction#0;class#SecondViewController#0" />
+                <element signature="e#6100#6101#0" expanded="true" />
+                <element signature="e#6128#6129#0" expanded="true" />
+                <element signature="e#7792#7793#0" expanded="true" />
+                <element signature="e#7877#7878#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project/common/Command.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -235,6 +233,7 @@
     <findStrings>
       <find>contro</find>
       <find>igure</find>
+      <find>list</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -260,7 +259,6 @@
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Tab.java" />
         <option value="$PROJECT_DIR$/src/sample/FirstView.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/SecondView.fxml" />
         <option value="$PROJECT_DIR$/src/project/game/commands/Messenger.java" />
         <option value="$PROJECT_DIR$/src/project/game/commands/ScreenCommand.java" />
         <option value="$PROJECT_DIR$/src/sample/ScreenManager.java" />
@@ -273,7 +271,6 @@
         <option value="$PROJECT_DIR$/src/sample/ScreenChessBoardManager.java" />
         <option value="$PROJECT_DIR$/src/project/Homework2Test.java" />
         <option value="$PROJECT_DIR$/src/sample/ChessManager.java" />
-        <option value="$PROJECT_DIR$/src/project/common/Game.java" />
         <option value="$PROJECT_DIR$/src/project/game/Board.java" />
         <option value="$PROJECT_DIR$/src/project/common/Figure.java" />
         <option value="$PROJECT_DIR$/src/project/game/figures/Bishop.java" />
@@ -284,12 +281,16 @@
         <option value="$PROJECT_DIR$/src/project/game/figures/Rook.java" />
         <option value="$PROJECT_DIR$/src/project/ImpossibleMoveException.java" />
         <option value="$PROJECT_DIR$/src/project/game/InnerGameNotation.java" />
-        <option value="$PROJECT_DIR$/src/project/game/ChessGame.java" />
         <option value="$PROJECT_DIR$/src/project/game/figures/Pawn.java" />
         <option value="$PROJECT_DIR$/src/project/common/Command.java" />
         <option value="$PROJECT_DIR$/src/project/game/commands/MoveCommand.java" />
-        <option value="$PROJECT_DIR$/src/sample/SecondViewController.java" />
+        <option value="$PROJECT_DIR$/src/sample/SecondView.fxml" />
+        <option value="$PROJECT_DIR$/src/project/game/NotationReaderWriter.java" />
         <option value="$PROJECT_DIR$/src/project/game/TestingReaderWriter.java" />
+        <option value="$PROJECT_DIR$/src/project/game/IReaderWriter.java" />
+        <option value="$PROJECT_DIR$/src/project/common/Game.java" />
+        <option value="$PROJECT_DIR$/src/project/game/ChessGame.java" />
+        <option value="$PROJECT_DIR$/src/sample/SecondViewController.java" />
       </list>
     </option>
   </component>
@@ -342,13 +343,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -387,8 +381,9 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556650892315" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556707784026" />
     <property name="dynamic.classpath" value="false" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NOTMINE/Chess-master" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
@@ -648,11 +643,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556643616562</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="na tlačítko next se už hýbají figurky podle vstupního programu (žádný vyhazování apod. zatím není)">
+      <created>1556653276086</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556653276087</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43156000" />
+    <option name="totallyTimeSpent" value="50082000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -675,7 +677,7 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27440348" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -717,28 +719,14 @@
     <MESSAGE value="init" />
     <MESSAGE value="init gui" />
     <MESSAGE value="work on game handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on game handling" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/SecondViewController.java</url>
-          <line>216</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="na tlačítko next se už hýbají figurky podle vstupního programu (žádný vyhazování apod. zatím není)" />
+    <option name="LAST_COMMIT_MESSAGE" value="na tlačítko next se už hýbají figurky podle vstupního programu (žádný vyhazování apod. zatím není)" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/project/game/IReaderWriter.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/project/game/InnerMoveNotation.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -818,13 +806,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/project/game/commands/ScreenCommand.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/ChessManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/project/common/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/project/common/Invoker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -848,20 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/NotationReaderWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/common/Figure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/project/game/figures/Bishop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
@@ -881,13 +848,6 @@
             <element signature="e#1738#1739#0" expanded="true" />
             <element signature="e#1762#1763#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="150" column="31" selection-start-line="150" selection-start-column="31" selection-end-line="150" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -937,14 +897,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/SecondView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WhiteBishop.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -954,20 +906,6 @@
           <caret line="84" column="49" selection-start-line="84" selection-start-column="49" selection-end-line="84" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/InnerGameNotation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#194#195#0" expanded="true" />
-            <element signature="e#242#243#0" expanded="true" />
-            <element signature="e#763#764#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#837#838#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -997,13 +935,6 @@
             <element signature="e#5915#5916#0" expanded="true" />
             <element signature="e#5948#5949#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/ChessGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
         </state>
       </provider>
     </entry>
@@ -1045,23 +976,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/SecondViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/SecondView.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="217" column="89" selection-start-line="217" selection-start-column="89" selection-end-line="217" selection-end-column="89" />
+        <state relative-caret-position="380">
+          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/game/InnerGameNotation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setBasicPositions#0;class#SecondViewController#0" />
-            <element signature="method#poschanged#0;class#SecondViewController#0" />
-            <element signature="method#handleaction#0;class#SecondViewController#0" />
+            <element signature="e#194#195#0" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#763#764#0" expanded="true" />
+            <element signature="e#795#796#0" expanded="true" />
+            <element signature="e#837#838#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/game/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="150" column="31" selection-start-line="150" selection-start-column="31" selection-end-line="150" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/game/NotationReaderWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="64" selection-start-line="64" selection-end-line="65" />
+          <folding>
+            <element signature="e#1442#1443#0" expanded="true" />
+            <element signature="e#1469#1470#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/project/game/TestingReaderWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        <state relative-caret-position="486">
+          <caret line="27" selection-start-line="27" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/game/IReaderWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/common/Figure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/common/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/game/ChessGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="170" column="24" selection-start-line="170" selection-start-column="24" selection-end-line="170" selection-end-column="24" />
+          <folding>
+            <element signature="method#SetBoard#0;class#ChessGame#0" />
+            <element signature="method#nextMove#0;class#ChessGame#0" />
+            <element signature="e#6065#6066#0" expanded="true" />
+            <element signature="e#6089#6090#0" expanded="true" />
+            <element signature="e#6045#6046#0" expanded="true" />
+            <element signature="e#6100#6101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/SecondViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="255" column="42" lean-forward="true" selection-start-line="255" selection-start-column="42" selection-end-line="255" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getNodeByRowColumnIndex#0;class#SecondViewController#0" />
+            <element signature="e#2558#2559#0" expanded="true" />
+            <element signature="e#2586#2587#0" expanded="true" />
+            <element signature="method#setBasicPositions#0;class#SecondViewController#0" />
+            <element signature="e#6100#6101#0" expanded="true" />
+            <element signature="e#6128#6129#0" expanded="true" />
+            <element signature="e#7792#7793#0" expanded="true" />
+            <element signature="e#7877#7878#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
