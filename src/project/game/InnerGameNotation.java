@@ -1,5 +1,7 @@
 package project.game;
 
+import sun.security.jgss.GSSCaller;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,7 @@ public class InnerGameNotation
     }
 
     /**
-     * Adds moveGUI to gameNotation
+     * Adds move to gameNotation
      * @param move
      */
     public void AddMove(InnerMoveNotation move)
@@ -27,8 +29,8 @@ public class InnerGameNotation
     }
 
     /**
-     * Returns moveGUI with the index
-     * @param indexOfMove index of moveGUI
+     * Returns move with the index
+     * @param indexOfMove index of move
      * @return
      */
     public InnerMoveNotation GetMove(int indexOfMove)
@@ -39,6 +41,16 @@ public class InnerGameNotation
     public int GetSize()
     {
         return gameNotation.size();
+    }
+
+    /**
+     * deletes all moves after index (including move on indexFrom)
+     * @param indexFrom
+     */
+    public void DeleteMovesFromIndexToEnd(int indexFrom)
+    {
+        if (GetSize() > indexFrom)
+            gameNotation.subList(indexFrom, GetSize()).clear();
     }
 }
 /*

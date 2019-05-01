@@ -1,5 +1,6 @@
 package project.game;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.IOException;
@@ -29,7 +30,7 @@ public class NotationReaderWriter implements IReaderWriter
         {
             return file.get(line);
         }
-        catch (ArrayIndexOutOfBoundsException e)
+        catch (IndexOutOfBoundsException e)
         {
             return null;
         }
@@ -53,11 +54,13 @@ public class NotationReaderWriter implements IReaderWriter
     {
         try
         {
-            file = (ObservableList<String>) Files.readAllLines(Paths.get(filenameForReading));
+            System.out.println(Paths.get(filenameForReading).toString());
+            file = FXCollections.observableArrayList(Files.readAllLines(Paths.get(filenameForReading)));
             return true;
         }
         catch (IOException e)
         {
+            System.out.println(e);
             return false;
         }
     }

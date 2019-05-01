@@ -1,10 +1,12 @@
 package sample;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -12,19 +14,26 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import project.GameFactory;
 import project.ImpossibleMoveException;
 import project.common.Command;
+import project.common.Field;
 import project.common.Game;
 import project.game.Board;
+import project.game.InnerMoveNotation;
 
 
 public class SecondViewController implements Initializable {
 
     private Game game;
     private Board board;
-    //private ChessManager manager;
+
+    //only for user's moves
+    private Field from;
+    private Field to;
+
     @FXML
     private Button nextButton;
     @FXML
@@ -52,6 +61,7 @@ public class SecondViewController implements Initializable {
     private Image whiteKnight = new Image("WhiteKnight.png");
     private Image whiteKing = new Image("WhiteKing.png");
     private Image whiteQueen = new Image("WhiteQueen.png");
+    private Image transparent = new Image("transparentImage.png");
 
 
 
@@ -94,6 +104,40 @@ public class SecondViewController implements Initializable {
         DoNextMove();
     }
 
+    EventHandler<MouseEvent> imageClickedEventHandler = new EventHandler<MouseEvent>()
+    {
+        @Override
+        public void handle(MouseEvent event)
+        {
+            ImageView clickedImage = (ImageView) event.getSource();
+            Field clickedField = board.getField(GridPane.getColumnIndex(clickedImage)+1, GridPane.getRowIndex(clickedImage)+1);
+            if(from == null) //zvolena teprve prvni souradnice, jeste se bude cekat na druhou
+                from = clickedField;
+            else
+            {
+                to = clickedField;
+                TryUsersMove();
+                to = null;
+                from = null;
+            }
+            System.out.println("ckliknuto na obr");
+        }
+    };
+
+    private void TryUsersMove()
+    {
+        InnerMoveNotation moveNotation = new InnerMoveNotation(from, to, 'n');
+        try
+        {
+            moveGUI(game.doUsersMove(moveNotation));
+        }
+        catch (ImpossibleMoveException ime)
+        {
+            System.out.println("neemozny tah");
+            //todo handle it
+        }
+    }
+
     private void DoNextMove()
     {
         try
@@ -118,6 +162,7 @@ public class SecondViewController implements Initializable {
         //todo berry - moveGUI command predela na screen commmand - souradnice
         return null;
     }
+
     private void setBasicPositions()
     {
         for(int row = 0; row < 8; row++)
@@ -126,8 +171,11 @@ public class SecondViewController implements Initializable {
             {
                 ImageView im = new ImageView();
                 grid.add(im,col, row);
-                im.setFitHeight(80);
-                im.setFitWidth(80);
+                im.setPreserveRatio(true);
+                im.setFitHeight(100);
+                im.setPickOnBounds(true);
+                im.setImage(transparent);
+                im.setOnMouseClicked(imageClickedEventHandler);
 
                 switch(row){
                     case 0:
@@ -208,7 +256,7 @@ public class SecondViewController implements Initializable {
     public void MoveFromListViewSelectedHandle(ActionEvent e)
     {
         int indexToGo = 2 * movesListView.getSelectionModel().getSelectedIndex();
-        System.out.println("vybrano: " + Integer.toString(indexToGo)); //smazat
+        //System.out.println("vybrano: " + Integer.toString(indexToGo)); //smazat
 
         if(game.getActualMoveIndex() < indexToGo)
         {
@@ -232,7 +280,7 @@ public class SecondViewController implements Initializable {
         ImageView nodeTo = (ImageView) getNodeByRowColumnIndex(cmd.getTo().getRow()-1, cmd.getTo().getCol()-1, grid);
         ImageView nodeFrom = (ImageView) getNodeByRowColumnIndex(cmd.getFrom().getRow()-1, cmd.getFrom().getCol()-1, grid);
         nodeTo.setImage(nodeFrom.getImage());
-        nodeFrom.setImage(null);
+        nodeFrom.setImage(transparent);
 
         //TODO BERRY
 
@@ -241,16 +289,24 @@ public class SecondViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        board = new Board(8);
-        game = GameFactory.createChessGame(board);
-        //manager = new ChessManager(grid, game, board);
-        BackgroundImage bi = new BackgroundImage(new Image("whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        grid.setBackground(new Background(bi));
+        try
+        {
+            board = new Board(8);
+            game = GameFactory.createChessGame(board);
 
-        setBasicPositions();
+            //manager = new ChessManager(grid, game, board);
+            BackgroundImage bi = new BackgroundImage(new Image("whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+            grid.setBackground(new Background(bi));
 
-        movesListView.setItems(game.getNotation());
-        movesListView.getSelectionModel().select(0);
+            setBasicPositions();
+
+            movesListView.setItems(game.getNotation());
+            movesListView.getSelectionModel().select(0);
+        }
+        catch (IOException e)
+        {
+            System.err.println("nepovedlo se cist"); //fixme
+        }
     }
 
     private void SetActualMoveOnListView()

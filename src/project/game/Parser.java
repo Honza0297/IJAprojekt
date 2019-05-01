@@ -1,5 +1,6 @@
 package project.game;
 
+import javafx.collections.ObservableList;
 import project.common.Field;
 
 import java.util.regex.Matcher;
@@ -29,7 +30,8 @@ public class Parser
         String line;
         Pattern r;
         Matcher m;
-        for(int i = 0; (line = readerWriter.GetLine(i)) != null; i++)
+        int i;
+        for(i = 0; (line = readerWriter.GetLine(i)) != null; i++)
         {
             r = Pattern.compile(pattern1 + Integer.toString(i+1) + patternShort);
             m = r.matcher(line);
@@ -62,6 +64,8 @@ public class Parser
                     return null;
             }
         }
+        if(i == 0) //unsuccessful reading
+            return null;
         return gameNotation;
     }
 
@@ -73,7 +77,7 @@ public class Parser
      */
     public boolean SaveGameNotation(InnerGameNotation gameNotation, String filename)
     {
-        return readerWriter.Save(FromGameNotation(gameNotation), filename);
+        return readerWriter.Save(FromInnerGameNotation(gameNotation), filename);
     }
 
     /**
@@ -81,14 +85,15 @@ public class Parser
      * @param gameNotation
      * @return String with official notation of game
      */
-    public String FromGameNotation(InnerGameNotation gameNotation)
+    public String FromInnerGameNotation(InnerGameNotation gameNotation)
     {
+        ObservableList<String> notation = readerWriter.GetNotation();
+        notation.clear();
         String line;
-        StringBuilder gameInString = new StringBuilder();
         for(int i = 0;(line = FromInnerMoveNotation(gameNotation, i)) != null;i = i + 2)
-            gameInString.append(line);
+            notation.add(line);
 
-        return gameInString.toString();
+        return notation.toString(); //fixme nejspis to bude vracet ve spatnem formatu
     }
 
     /**

@@ -2,6 +2,7 @@ package project.common;
 
 import javafx.collections.ObservableList;
 import project.ImpossibleMoveException;
+import project.game.InnerMoveNotation;
 
 public interface Game {
 
@@ -12,4 +13,6 @@ public interface Game {
     Command nextMove() throws ImpossibleMoveException;
 
     int getActualMoveIndex();
+
+    Command doUsersMove(InnerMoveNotation moveNotation) throws ImpossibleMoveException;
 }

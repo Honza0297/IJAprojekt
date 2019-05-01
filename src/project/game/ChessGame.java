@@ -11,6 +11,7 @@ import project.game.commands.MoveCommand;
 import project.game.commands.MoveInvoker;
 import project.game.figures.*;
 
+import java.io.IOException;
 import java.util.List;
 
 public class ChessGame implements Game {
@@ -21,16 +22,19 @@ public class ChessGame implements Game {
     private InnerGameNotation gameNotation;
     private int moveIndex; //cislo aktualniho tahu
 
-    public ChessGame(Board board)
+    public ChessGame(Board board) throws IOException
     {
         chessBoard = board;
         SetBoard(chessBoard);
 
         invoker = new MoveInvoker();
-        parser = new Parser(new TestingReaderWriter(), chessBoard); //todo zmenit TestingReaderWriter
+        parser = new Parser(new NotationReaderWriter("C:\\Users\\danbu\\source\\java\\src\\notace.txt"), chessBoard); //todo jmeno souboru
         gameNotation = parser.ParseGameToInner(); //fixme
         if(gameNotation == null)
+        {
             System.out.println("Nepovedlo se nacist notaci!"); //fixme
+            throw new IOException();
+        }
         moveIndex = 0;
     }
 
@@ -136,14 +140,14 @@ public class ChessGame implements Game {
     @Override
     public Command nextMove() throws ImpossibleMoveException
     {
-        if(moveIndex >= gameNotation.GetSize()-1)
+        if(moveIndex >= gameNotation.GetSize())
             return null;
 
         InnerMoveNotation moveNotation = gameNotation.GetMove(moveIndex++);
 
         if (moveNotation.fieldFrom != null)
         {
-            Command cmd = move(moveNotation.fieldFrom.get(), moveNotation.fieldTo);
+            Command cmd = move(moveNotation.fieldFrom.get(), moveNotation.fieldTo); //todo pokud zbyde cas, zkontrolovat jestli to sedi s typem figurky
             if(cmd == null)
                 throw new ImpossibleMoveException(moveIndex);
             else
@@ -169,6 +173,15 @@ public class ChessGame implements Game {
     public int getActualMoveIndex()
     {
         return moveIndex;
+    }
+
+    @Override
+    public Command doUsersMove(InnerMoveNotation moveNotation) throws ImpossibleMoveException
+    {
+        gameNotation.DeleteMovesFromIndexToEnd(moveIndex);
+        gameNotation.AddMove(moveNotation);
+        //parser.FromInnerGameNotation(gameNotation); //fixme denny
+        return nextMove();
     }
 
     public ObservableList<String> getNotation()
