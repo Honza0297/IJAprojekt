@@ -162,7 +162,10 @@ public class ChessGame implements Game {
                 {
                     Command cmd = move(figure, moveNotation.fieldTo);
                     if (cmd != null) //pokud se tah povedl, vratim ho
+                    {
+                        moveNotation.fieldFrom = cmd.getFrom();
                         return cmd;
+                    }
                 }
             }
             throw new ImpossibleMoveException(moveIndex);
@@ -180,7 +183,7 @@ public class ChessGame implements Game {
     {
         gameNotation.DeleteMovesFromIndexToEnd(moveIndex);
         gameNotation.AddMove(moveNotation);
-        //parser.FromInnerGameNotation(gameNotation); //fixme denny
+        parser.FromInnerGameNotation(gameNotation);
         return nextMove();
     }
 
