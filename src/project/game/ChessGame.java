@@ -133,6 +133,28 @@ public class ChessGame implements Game {
     }
 
     /**
+     * Does move back in existing notation
+     * @return
+     */
+    public Command backMove()
+    {
+        moveIndex--;
+        return invoker.undo();
+    }
+
+    /**
+     * Undo user's move - deletes it from notation
+     * @return
+     */
+    public Command undoMove()
+    {
+        moveIndex--;
+        gameNotation.DeleteMovesFromIndexToEnd(moveIndex);
+        return invoker.undo();
+    }
+
+
+    /**
      * Increases moveIndex, gets the moveGUI from gameNotation, finds the right figure to do the moveGUI and does the moveGUI
      * @return Command with the moveGUI or null if next moveGUI is not possible (there are no more notated moves)
      * @throws ImpossibleMoveException in case of no found figure to do the moveGUI from gameNotation

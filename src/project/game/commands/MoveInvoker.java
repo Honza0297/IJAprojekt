@@ -28,10 +28,12 @@ public class MoveInvoker implements Invoker
         }
     }
 
-    public void undo() {
+    public Command undo() {
         if(!undoStack.empty()) {
             Command cmd = undoStack.pop();
             cmd.undo();
+            return cmd;
         }
+        return null;
     }
 }
