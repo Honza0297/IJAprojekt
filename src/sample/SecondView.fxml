@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="1200.0" maxWidth="800.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SecondViewController">
+<AnchorPane maxHeight="1200.0" maxWidth="800.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SecondViewController">
    <children>
       <GridPane fx:id="grid" alignment="CENTER" maxWidth="1.7976931348623157E308" minWidth="400.0" prefHeight="800.0" prefWidth="800.0">
          <columnConstraints>
@@ -34,11 +37,14 @@
       </GridPane>
       <VBox layoutX="800.0" layoutY="14.0" prefHeight="770.0" prefWidth="100.0">
          <children>
-            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#NextMoveButtonCLicked" text="next" />
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#NextMoveButtonClicked" text="next" />
             <Button fx:id="undoButton" mnemonicParsing="false" onAction="#UndoMoveButtonClicked" text="undo" />
             <Button fx:id="StopButton" mnemonicParsing="false" onAction="#StopGame" text="Stop" />
             <Button fx:id="StartButton" mnemonicParsing="false" onAction="#StartGame" text="Start" />
             <Button fx:id="StartButton1" mnemonicParsing="false" onAction="#MoveFromListViewSelectedHandle" prefHeight="33.0" prefWidth="100.0" text="Skoč na zvolený tah" />
+            <Button fx:id="redoButton" mnemonicParsing="false" onAction="#RedoMoveButtonClicked" text="redo" />
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#BackMoveButtonClicked" text="back" />
+            <Button mnemonicParsing="false" onAction="#ExportButtonClicked" text="Export" />
          </children>
       </VBox>
       <ListView fx:id="movesListView" layoutX="900.0" layoutY="14.0" prefHeight="770.0" prefWidth="291.0" />

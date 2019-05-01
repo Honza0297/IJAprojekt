@@ -28,7 +28,7 @@ public class ChessGame implements Game {
         SetBoard(chessBoard);
 
         invoker = new MoveInvoker();
-        parser = new Parser(new NotationReaderWriter("C:\\Users\\danbu\\source\\java\\src\\notace.txt"), chessBoard); //todo jmeno souboru
+        parser = new Parser(new NotationReaderWriter("C:\\Users\\janbe\\Sources\\IntelliJIdea\\IJAproj\\src\\notace.txt"), chessBoard); //todo jmeno souboru
         gameNotation = parser.ParseGameToInner(); //fixme
         if(gameNotation == null)
         {
@@ -123,13 +123,15 @@ public class ChessGame implements Game {
         }
     }
 
-    private Command move(Figure figure, Field field) {
+    //todo denny uzivatelske tahy - hlidat, aby se stridaly barvy
+    private Command move(Figure figure, Field field) //todo denny vyresit tahy z prazdneho policka!
+        {
         Command cmd = new MoveCommand(figure, figure.getPositionField(), field, field.get());
         return invoker.execute(cmd);
     }
 
     @Override
-    public void undo() { invoker.undo();
+    public void undo() { invoker.undo(false);
     }
 
     /**
@@ -139,7 +141,7 @@ public class ChessGame implements Game {
     public Command backMove()
     {
         moveIndex--;
-        return invoker.undo();
+        return invoker.undo(false);
     }
 
     /**
@@ -150,9 +152,37 @@ public class ChessGame implements Game {
     {
         moveIndex--;
         gameNotation.DeleteMovesFromIndexToEnd(moveIndex);
-        return invoker.undo();
+        parser.FromInnerGameNotation(gameNotation);
+        return invoker.undo(true);
     }
 
+    public boolean canUndo()
+    {
+        System.err.printf("moveIndex: %d getusize %d\n", moveIndex, gameNotation.GetSize());
+        return moveIndex == gameNotation.GetSize();
+    }
+
+    @Override
+    public Parser getParser() {
+        return this.parser;
+    }
+
+    @Override
+    public InnerGameNotation getGameNotation() {
+        return this.gameNotation;
+    }
+
+    public Command redoMove()
+    {
+        Command cmd = invoker.redo();
+        if(cmd == null)
+            return null;
+        gameNotation.AddMove(new InnerMoveNotation(cmd.getFrom(), cmd.getTo(), 'n'));
+        parser.FromInnerGameNotation(gameNotation);
+        moveIndex++;
+        return cmd;
+
+    }
 
     /**
      * Increases moveIndex, gets the moveGUI from gameNotation, finds the right figure to do the moveGUI and does the moveGUI
@@ -204,6 +234,7 @@ public class ChessGame implements Game {
     public Command doUsersMove(InnerMoveNotation moveNotation) throws ImpossibleMoveException
     {
         gameNotation.DeleteMovesFromIndexToEnd(moveIndex);
+        invoker.deleteRedoStack();
         gameNotation.AddMove(moveNotation);
         parser.FromInnerGameNotation(gameNotation);
         return nextMove();

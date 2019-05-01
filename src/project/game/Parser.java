@@ -2,6 +2,7 @@ package project.game;
 
 import javafx.collections.ObservableList;
 import project.common.Field;
+import project.common.IReaderWriter;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

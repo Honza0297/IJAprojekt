@@ -6,7 +6,7 @@ import project.common.Figure;
 
 public class Pawn extends FigureBase implements Figure
 {
-
+//todo berry - prvni tah  pesce muze byt o dve policka!
     public Pawn(boolean isWhite)
     {
         this.isItWhite = isWhite;

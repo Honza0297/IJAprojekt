@@ -50,7 +50,10 @@ public class InnerGameNotation
     public void DeleteMovesFromIndexToEnd(int indexFrom)
     {
         if (GetSize() > indexFrom)
+        {
             gameNotation.subList(indexFrom, GetSize()).clear();
+        }
+
     }
 }
 /*

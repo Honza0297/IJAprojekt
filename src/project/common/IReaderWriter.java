@@ -1,4 +1,4 @@
-package project.game;
+package project.common;
 
 import javafx.collections.ObservableList;
 

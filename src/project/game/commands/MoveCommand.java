@@ -31,6 +31,14 @@ public class MoveCommand implements Command {
         }
     }
 
+    public Figure getWasKilled() {
+        return wasKilled;
+    }
+
+    public Figure getMoving() {
+        return moving;
+    }
+
     @Override
     public Field getTo() {
         return to;

@@ -2,6 +2,7 @@ package project.game;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import project.common.IReaderWriter;
 
 import java.util.Arrays;
 
@@ -25,6 +26,7 @@ public class TestingReaderWriter implements IReaderWriter
         System.out.println(gameNotation);
         return true;
     }
+
     public ObservableList<String> GetNotation()
     {
         ObservableList<String> ret = FXCollections.observableArrayList();

@@ -20,13 +20,16 @@ import project.GameFactory;
 import project.ImpossibleMoveException;
 import project.common.Command;
 import project.common.Field;
+import project.common.Figure;
 import project.common.Game;
 import project.game.Board;
 import project.game.InnerMoveNotation;
+import project.game.figures.*;
 
 
 public class SecondViewController implements Initializable {
 
+    private int userOn;
     private Game game;
     private Board board;
 
@@ -38,6 +41,10 @@ public class SecondViewController implements Initializable {
     private Button nextButton;
     @FXML
     private Button undoButton;
+    @FXML
+    private Button redoButton;
+    @FXML
+    private Button backButton;
     @FXML
     private Button StartButton;
     @FXML
@@ -76,7 +83,7 @@ public class SecondViewController implements Initializable {
             Integer mycol = GridPane.getColumnIndex(node);
             if(mycol== null)
                 mycol = 0;
-            System.out.printf("%d %d\n", myrow, mycol);
+           // System.out.printf("%d %d\n", myrow, mycol);
             if(mycol == column && myrow == row)
             {
                 result = node;
@@ -99,7 +106,7 @@ public class SecondViewController implements Initializable {
     }
 
     @FXML
-    public void NextMoveButtonCLicked(ActionEvent e)
+    public void NextMoveButtonClicked(ActionEvent e)
     {
         DoNextMove();
     }
@@ -115,6 +122,14 @@ public class SecondViewController implements Initializable {
                 from = clickedField;
             else
             {
+                if(from == clickedField)
+                {
+                    System.err.println("from == clickedfield");
+                    to = null;
+                    from = null;
+                    return;
+                }
+                userOn++;
                 to = clickedField;
                 TryUsersMove();
                 to = null;
@@ -129,7 +144,7 @@ public class SecondViewController implements Initializable {
         InnerMoveNotation moveNotation = new InnerMoveNotation(from, to, 'n');
         try
         {
-            moveGUI(game.doUsersMove(moveNotation));
+            moveGUI(game.doUsersMove(moveNotation), false);
         }
         catch (ImpossibleMoveException ime)
         {
@@ -148,19 +163,13 @@ public class SecondViewController implements Initializable {
                 System.out.println("dalsi tah neni");
                 return; //todo handle no nextMove
             }
-            moveGUI(cmd);
-           // moveGUI(convert(cmd, false));
+            moveGUI(cmd, false);
         }
         catch (ImpossibleMoveException ime)
         {
             System.out.println("neemozny tah");
             //todo handle it
         }
-    }
-
-    private Command convert(Command cmd, boolean undo) {
-        //todo berry - moveGUI command predela na screen commmand - souradnice
-        return null;
     }
 
     private void setBasicPositions()
@@ -251,6 +260,70 @@ public class SecondViewController implements Initializable {
     {
         DoUndoMove();
     }
+    @FXML
+    public void BackMoveButtonClicked(ActionEvent e)
+    {
+        DoBackMove();
+    }
+
+
+    @FXML
+    public void RedoMoveButtonClicked(ActionEvent e)
+    {
+        DoRedoMove();
+    }
+
+    @FXML
+    public void ExportButtonClicked(ActionEvent e)
+    {
+        if(!game.getParser().SaveGameNotation(game.getGameNotation(),"vyexportovano.txt"))
+        {
+            System.err.println("Nebylo mozno vyexportovat notaci. AKA Nepovedl se zapis.");
+        }
+        else
+        {
+            System.err.println("Povedl se zapis.");
+        }
+    }
+
+
+    private void DoRedoMove()
+    {
+        if(game.canUndo())
+        {
+            Command cmd = game.redoMove();
+            if(cmd != null)
+            {
+                System.err.println("Stack prazdny");
+                moveGUI(cmd, false);
+            }
+        }
+    }
+
+    private void DoBackMove()
+    {
+        Command cmd = game.backMove();
+        moveGUI(cmd, true);
+    }
+
+    private void DoUndoMove()
+    {
+        System.err.printf("%d\n", userOn);
+        if(game.canUndo())
+        {
+            if(userOn != 0)
+            {
+                Command cmd = game.undoMove();
+                moveGUI(cmd, true);
+                userOn--;
+            }
+            else
+            {
+                //todo handle it
+                System.err.printf("Undo pres limit user tahu!"); //smazat
+            }
+        }
+    }
 
     @FXML
     public void MoveFromListViewSelectedHandle(ActionEvent e)
@@ -266,31 +339,77 @@ public class SecondViewController implements Initializable {
         else
         {
             while(game.getActualMoveIndex() > indexToGo)
-                DoUndoMove();
+            {
+                DoBackMove();
+            }
         }
     }
 
-    private void DoUndoMove()
-    {
-        //todo berry
-    }
 
-    public void moveGUI(Command cmd)
+    public void moveGUI(Command cmd, boolean isUndo)///note test it!!!
     {
-        ImageView nodeTo = (ImageView) getNodeByRowColumnIndex(cmd.getTo().getRow()-1, cmd.getTo().getCol()-1, grid);
-        ImageView nodeFrom = (ImageView) getNodeByRowColumnIndex(cmd.getFrom().getRow()-1, cmd.getFrom().getCol()-1, grid);
-        nodeTo.setImage(nodeFrom.getImage());
-        nodeFrom.setImage(transparent);
-
-        //TODO BERRY
+        if(isUndo)
+        {
+            //nodeFrom is got from cmd.getTo() and vice versa
+            ImageView nodeFrom = (ImageView) getNodeByRowColumnIndex(cmd.getTo().getRow()-1, cmd.getTo().getCol()-1, grid);
+            ImageView nodeTo = (ImageView) getNodeByRowColumnIndex(cmd.getFrom().getRow()-1, cmd.getFrom().getCol()-1, grid);
+            nodeTo.setImage(nodeFrom.getImage());
+            Figure wasKilled = cmd.getWasKilled();
+                if(wasKilled != null)
+                {
+                    nodeFrom.setImage(getImageByClass(wasKilled));
+                }
+                else
+                {
+                    nodeFrom.setImage(transparent);
+                }
+        }
+        else
+        {
+            ImageView nodeTo = (ImageView) getNodeByRowColumnIndex(cmd.getTo().getRow()-1, cmd.getTo().getCol()-1, grid);
+            ImageView nodeFrom = (ImageView) getNodeByRowColumnIndex(cmd.getFrom().getRow()-1, cmd.getFrom().getCol()-1, grid);
+            nodeTo.setImage(nodeFrom.getImage());
+            nodeFrom.setImage(transparent);
+        }
 
         SetActualMoveOnListView();
+    }
+
+    private Image getImageByClass(Figure figure)
+    {
+        Image returnImage = null;
+        if(figure.getClass() == Pawn.class)
+        {
+            returnImage = figure.isWhite() ? whitePawn : blackPawn;
+        }
+        else if(figure.getClass() == Rook.class)
+        {
+            returnImage = figure.isWhite() ? whiteRook : blackRook;
+        }
+        else if(figure.getClass() == Knight.class)
+        {
+            returnImage = figure.isWhite() ? whiteKnight : blackKnight;
+        }
+        else if(figure.getClass() == Bishop.class)
+        {
+            returnImage = figure.isWhite() ? whiteBishop : blackBishop;
+        }
+        else if(figure.getClass() == Queen.class)
+        {
+            returnImage = figure.isWhite() ? whiteQueen : blackQueen;
+        }
+        else if(figure.getClass() == King.class)
+        {
+            returnImage = figure.isWhite() ? whiteKing : blackKing;
+        }
+        return returnImage;
     }
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
         try
         {
+            userOn = 0;
             board = new Board(8);
             game = GameFactory.createChessGame(board);
 

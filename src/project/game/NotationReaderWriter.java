@@ -2,12 +2,11 @@ package project.game;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import project.common.IReaderWriter;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.Observable;
 
 public class NotationReaderWriter implements IReaderWriter
 {

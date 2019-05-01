@@ -5,4 +5,6 @@ public interface Command {
     public void undo();
     public Field getTo();
     Field getFrom();
+    public Figure getWasKilled();
+    public Figure getMoving();
 }
