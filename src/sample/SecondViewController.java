@@ -35,7 +35,9 @@ public class SecondViewController implements Initializable {
 
     //only for user's moves
     private Field from;
+    private Image fromImage;
     private Field to;
+    private Image toImage;
 
     @FXML
     private Button nextButton;
@@ -68,9 +70,24 @@ public class SecondViewController implements Initializable {
     private Image whiteKnight = new Image("WhiteKnight.png");
     private Image whiteKing = new Image("WhiteKing.png");
     private Image whiteQueen = new Image("WhiteQueen.png");
+
     private Image transparent = new Image("transparentImage.png");
+    private Image transparentSelected = new Image("transparentImageSelected.png");
+
+    private Image blackPawnSelected = new Image("BlackPawnSelected.png");
+    private Image blackRookSelected = new Image("BlackRookSelected.png");
+    private Image blackBishopSelected = new Image("BlackBishopSelected.png");
+    private Image blackKnightSelected = new Image("BlackKnightSelected.png");
+    private Image blackKingSelected = new Image("BlackKingSelected.png");
+    private Image blackQueenSelected = new Image("BlackQueenSelected.png");
 
 
+    private Image whitePawnSelected = new Image("WhitePawnSelected.png");
+    private Image whiteRookSelected = new Image("WhiteRookSelected.png");
+    private Image whiteBishopSelected = new Image("WhiteBishopSelected.png");
+    private Image whiteKnightSelected = new Image("WhiteKnightSelected.png");
+    private Image whiteKingSelected = new Image("WhiteKingSelected.png");
+    private Image whiteQueenSelected = new Image("WhiteQueenSelected.png");
 
     public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane)
     {
@@ -119,25 +136,38 @@ public class SecondViewController implements Initializable {
             ImageView clickedImage = (ImageView) event.getSource();
             Field clickedField = board.getField(GridPane.getColumnIndex(clickedImage)+1, GridPane.getRowIndex(clickedImage)+1);
             if(from == null) //zvolena teprve prvni souradnice, jeste se bude cekat na druhou
+            {
                 from = clickedField;
+                fromImage = clickedImage.getImage();
+                clickedImage.setImage(getImageSelectedByClass(clickedField.get()));
+            }
             else
             {
                 if(from == clickedField)
                 {
                     System.err.println("from == clickedfield");
+                    clickedImage.setImage(fromImage);
+                    toImage = null;
+                    fromImage = null;
                     to = null;
                     from = null;
                     return;
                 }
+
                 userOn++;
                 to = clickedField;
                 TryUsersMove();
+                toImage = null;
+                fromImage = null;
                 to = null;
                 from = null;
             }
             System.out.println("ckliknuto na obr");
         }
     };
+
+
+
 
     private void TryUsersMove()
     {
@@ -353,7 +383,8 @@ public class SecondViewController implements Initializable {
             //nodeFrom is got from cmd.getTo() and vice versa
             ImageView nodeFrom = (ImageView) getNodeByRowColumnIndex(cmd.getTo().getRow()-1, cmd.getTo().getCol()-1, grid);
             ImageView nodeTo = (ImageView) getNodeByRowColumnIndex(cmd.getFrom().getRow()-1, cmd.getFrom().getCol()-1, grid);
-            nodeTo.setImage(nodeFrom.getImage());
+            nodeTo.setImage(getImageByClass(cmd.getFrom().get()));
+            //nodeTo.setImage(nodeFrom.getImage());
             Figure wasKilled = cmd.getWasKilled();
                 if(wasKilled != null)
                 {
@@ -368,16 +399,49 @@ public class SecondViewController implements Initializable {
         {
             ImageView nodeTo = (ImageView) getNodeByRowColumnIndex(cmd.getTo().getRow()-1, cmd.getTo().getCol()-1, grid);
             ImageView nodeFrom = (ImageView) getNodeByRowColumnIndex(cmd.getFrom().getRow()-1, cmd.getFrom().getCol()-1, grid);
-            nodeTo.setImage(nodeFrom.getImage());
+            nodeTo.setImage(getImageByClass(cmd.getTo().get()));
+            //nodeTo.setImage(nodeFrom.getImage());
             nodeFrom.setImage(transparent);
         }
 
         SetActualMoveOnListView();
     }
 
+    private Image getImageSelectedByClass(Figure figure) {
+        Image returnImage = null;
+        if(figure == null)
+            return returnImage;
+        if(figure.getClass() == Pawn.class)
+        {
+            returnImage = figure.isWhite() ? whitePawnSelected : blackPawnSelected;
+        }
+        else if(figure.getClass() == Rook.class)
+        {
+            returnImage = figure.isWhite() ? whiteRookSelected : blackRookSelected;
+        }
+        else if(figure.getClass() == Knight.class)
+        {
+            returnImage = figure.isWhite() ? whiteKnightSelected : blackKnightSelected;
+        }
+        else if(figure.getClass() == Bishop.class)
+        {
+            returnImage = figure.isWhite() ? whiteBishopSelected : blackBishopSelected;
+        }
+        else if(figure.getClass() == Queen.class)
+        {
+            returnImage = figure.isWhite() ? whiteQueenSelected : blackQueenSelected;
+        }
+        else if(figure.getClass() == King.class)
+        {
+            returnImage = figure.isWhite() ? whiteKingSelected : blackKingSelected;
+        }
+        return returnImage;
+    }
     private Image getImageByClass(Figure figure)
     {
         Image returnImage = null;
+        if(figure == null)
+            return returnImage;
         if(figure.getClass() == Pawn.class)
         {
             returnImage = figure.isWhite() ? whitePawn : blackPawn;
