@@ -72,8 +72,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/project/game/figures/Pawn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="65" column="82" selection-start-line="65" selection-start-column="82" selection-end-line="65" selection-end-column="82" />
+            <state relative-caret-position="315">
+              <caret line="67" column="9" lean-forward="true" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+              <folding>
+                <element signature="e#2727#2728#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -277,8 +280,44 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="IJAproj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IJAproj" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IJAproj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IJAproj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IJAproj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IJAproj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IJAproj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IJAproj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IJAproj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IJAproj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="figures" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
       <pane id="Course" />
     </panes>
@@ -416,7 +455,7 @@
       <workItem from="1556608981336" duration="15498000" />
       <workItem from="1556806029816" duration="2941000" />
       <workItem from="1556986546036" duration="113000" />
-      <workItem from="1557004011980" duration="230000" />
+      <workItem from="1557004011980" duration="772000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1556442818200</created>
@@ -478,7 +517,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96072000" />
+    <option name="totallyTimeSpent" value="96844000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -559,6 +598,12 @@
           <line>30</line>
           <properties />
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/project/game/figures/Pawn.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -826,13 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Pawn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-637">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/project/GameFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -867,13 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project/game/ChessGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4318">
-          <caret line="272" column="31" selection-start-line="272" selection-start-column="31" selection-end-line="272" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/project/game/InnerGameNotation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -883,7 +914,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="442">
           <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -937,7 +968,24 @@
     <entry file="file://$PROJECT_DIR$/src/sample/SecondViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="355" column="5" lean-forward="true" selection-start-line="355" selection-start-column="5" selection-end-line="355" selection-end-column="5" />
+          <caret line="355" column="5" selection-start-line="355" selection-start-column="5" selection-end-line="355" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/game/ChessGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="272" column="31" selection-start-line="272" selection-start-column="31" selection-end-line="272" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project/game/figures/Pawn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="67" column="9" lean-forward="true" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+          <folding>
+            <element signature="e#2727#2728#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

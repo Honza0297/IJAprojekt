@@ -56,17 +56,17 @@ public class Pawn extends FigureBase implements Figure
             return false;
         }
         //Check if going only by one row
-        int distance = 1;
-        if(firstMove)
+        if(((isWhite() && (moveTo.getRow() == this.whereAmI.getRow()+1)) ||
+                (!isWhite() && (moveTo.getRow() == this.whereAmI.getRow()-1))) || (firstMove && ((isWhite() && (moveTo.getRow() == this.whereAmI.getRow()+2)) ||
+                (!isWhite() && (moveTo.getRow() == this.whereAmI.getRow()-2)))))
         {
-            distance = 2;
             firstMove = false;
         }
-        if((isWhite() && (moveTo.getRow() != this.whereAmI.getRow()+distance)) ||
-                (!isWhite() && (moveTo.getRow() != this.whereAmI.getRow()-distance)))
+        else
         {
             return false;
         }
+
         Field.Direction direction = this.whereAmI.getDirection(moveTo);
         boolean moveStraight = (isWhite() && direction == Field.Direction.U) || (!isWhite() && direction == Field.Direction.D);
         //go straight without kill
