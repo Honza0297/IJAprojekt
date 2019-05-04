@@ -32,18 +32,19 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <VBox layoutX="800.0" layoutY="14.0" prefHeight="770.0" prefWidth="100.0">
+      <VBox layoutX="800.0" layoutY="14.0" prefHeight="770.0" prefWidth="184.0">
          <children>
-            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#NextMoveButtonClicked" text="next" />
-            <Button fx:id="undoButton" mnemonicParsing="false" onAction="#UndoMoveButtonClicked" text="undo" />
-            <Button fx:id="StopButton" mnemonicParsing="false" onAction="#StopGame" text="Stop" />
-            <Button fx:id="StartButton" mnemonicParsing="false" onAction="#StartGame" text="Start" />
-            <Button fx:id="jumpButton" mnemonicParsing="false" onAction="#MoveFromListViewSelectedHandle" prefHeight="33.0" prefWidth="100.0" text="Skoč na zvolený tah" />
-            <Button fx:id="redoButton" mnemonicParsing="false" onAction="#RedoMoveButtonClicked" text="redo" />
-            <Button fx:id="backButton" mnemonicParsing="false" onAction="#BackMoveButtonClicked" text="back" />
-            <Button fx:id="exportButton" mnemonicParsing="false" onAction="#ExportButtonClicked" text="Export" />
+            <Button fx:id="loadNotationButton" mnemonicParsing="false" onAction="#NextMoveButtonClicked" prefHeight="55.0" prefWidth="184.0" text="Načíst notaci" />
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#NextMoveButtonClicked" prefHeight="25.0" prefWidth="184.0" text="Další" />
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#BackMoveButtonClicked" prefHeight="25.0" prefWidth="184.0" text="Zpět" />
+            <Button fx:id="jumpButton" mnemonicParsing="false" onAction="#MoveFromListViewSelectedHandle" prefHeight="33.0" prefWidth="186.0" text="Skoč na zvolený tah" />
+            <Button fx:id="undoButton" mnemonicParsing="false" onAction="#UndoMoveButtonClicked" prefHeight="25.0" prefWidth="183.0" text="Undo" />
+            <Button fx:id="redoButton" mnemonicParsing="false" onAction="#RedoMoveButtonClicked" prefHeight="25.0" prefWidth="182.0" text="Redo" />
+            <Button fx:id="StartButton" mnemonicParsing="false" onAction="#StartGame" prefHeight="25.0" prefWidth="183.0" text="Auto přehrávání - START" />
+            <Button fx:id="StopButton" mnemonicParsing="false" onAction="#StopGame" prefHeight="25.0" prefWidth="183.0" text="Auto přehrávání - STOP" />
+            <Button fx:id="exportButton" mnemonicParsing="false" onAction="#ExportButtonClicked" prefHeight="25.0" prefWidth="185.0" text="Export notace" />
          </children>
       </VBox>
-      <ListView fx:id="movesListView" layoutX="900.0" layoutY="14.0" prefHeight="770.0" prefWidth="291.0" />
+      <ListView fx:id="movesListView" layoutX="989.0" layoutY="14.0" prefHeight="770.0" prefWidth="202.0" />
    </children>
 </AnchorPane>
