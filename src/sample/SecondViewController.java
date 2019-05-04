@@ -74,7 +74,6 @@ public class SecondViewController implements Initializable {
     private Image blackKing = new Image("BlackKing.png");
     private Image blackQueen = new Image("BlackQueen.png");
 
-
     private Image whitePawn = new Image("WhitePawn.png");
     private Image whiteRook = new Image("WhiteRook.png");
     private Image whiteBishop = new Image("WhiteBishop.png");
@@ -82,7 +81,7 @@ public class SecondViewController implements Initializable {
     private Image whiteKing = new Image("WhiteKing.png");
     private Image whiteQueen = new Image("WhiteQueen.png");
 
-    private Image transparent = new Image("BlackQueenSelected.png");//"transparentImage.png");
+    private Image transparent = new Image("transparentImage.png");
     private Image transparentSelected = new Image("transparentImageSelected.png");
 
     private Image blackPawnSelected = new Image("BlackPawnSelected.png");
@@ -91,7 +90,6 @@ public class SecondViewController implements Initializable {
     private Image blackKnightSelected = new Image("BlackKnightSelected.png");
     private Image blackKingSelected = new Image("BlackKingSelected.png");
     private Image blackQueenSelected = new Image("BlackQueenSelected.png");
-
 
     private Image whitePawnSelected = new Image("WhitePawnSelected.png");
     private Image whiteRookSelected = new Image("WhiteRookSelected.png");
@@ -196,7 +194,8 @@ public class SecondViewController implements Initializable {
         }
         catch (ImpossibleMoveException ime)
         {
-            System.out.println("neemozny tah");
+            System.out.println("nemozny tah");
+            ((ImageView)getNodeByRowColumnIndex(from.getRow()-1, from.getCol()-1, grid)).setImage(fromImage);
             //todo handle it
         }
     }
@@ -351,6 +350,8 @@ public class SecondViewController implements Initializable {
     private void DoBackMove()
     {
         Command cmd = game.backMove();
+        if(cmd == null)
+            return; //todo vyhodit messagebox krok zpet neni
         moveGUI(cmd, true);
     }
 
@@ -425,9 +426,6 @@ public class SecondViewController implements Initializable {
         SetActualMoveOnListView();
     }
 
-    //todo berry pri nemoznem tahu ti zustane oznacena figurka
-    //TODO BERRY PRIORITA! pri pokusu tahnout z prazdneho pole se ti ztrati image z daneho pole a nelze na nej tedy uz nikdy kliknout
-
     private Image getImageSelectedByClass(Figure figure) {
         Image returnImage = null;
         if(figure == null)
@@ -498,7 +496,7 @@ public class SecondViewController implements Initializable {
 
             userOn = 0;
             board = new Board(8);
-            game = GameFactory.createChessGame(board,"C:\\Users\\danbu\\source\\java\\src\\notace.txt");
+            game = GameFactory.createChessGame(board,"C:\\Users\\janbe\\Sources\\IntelliJIdea\\IJAproj\\src\\notace.txt");
 
             //manager = new ChessManager(grid, game, board);
             BackgroundImage bi = new BackgroundImage(new Image("whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);

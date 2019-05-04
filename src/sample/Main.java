@@ -15,8 +15,6 @@ import java.io.File;
 //todo denny? ukonceni hry
 //todo zakazat tlacitka ve spravnych chvilich
 //todo misto konzoloveho vypisu objevit javovske messageboxy
-//todo berry? vycentrovat figurky
-//todo berry? zvyrazneni kliknutych policek
 //todo dvakrat kliknuto na to same = zrusit odznaceni (ted hazi hlasku)
 
 public class Main extends Application {
