@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/sample/SecondView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SecondView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/SecondViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SecondViewController.java" afterDir="false" />
     </list>
+    
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
