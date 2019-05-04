@@ -16,7 +16,8 @@ public class InnerMoveNotation
         fieldFrom = from;
         fieldTo = to;
         this.movingFigureType = movingFigureType;
-        isWhite = null;
+        if(from != null && from.get() != null)
+            isWhite = from.get().isWhite();
         sach = null;
         mat = null;
     }

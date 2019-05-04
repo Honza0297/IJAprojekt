@@ -1,6 +1,9 @@
 package project.common;
 
 public interface Invoker {
-   public boolean execute(Command cmd);
-   public void undo();
+   public Command execute(Command cmd);
+   public Command undo(boolean redoEnabled);
+   public Command redo();
+
+   void deleteRedoStack();
 }

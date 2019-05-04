@@ -37,7 +37,7 @@ public class Rook extends FigureBase implements Figure
             return false;
         }
 
-        //can move and possibly kill
+        //can moveGUI and possibly kill
         if(moveTo.containsEnemy(this.isWhite()))
         {
             moveTo.kill();
@@ -78,6 +78,12 @@ public class Rook extends FigureBase implements Figure
             neighborInDirection = neighborInDirection.nextField(direction);
         }
         return true;
+    }
+
+    @Override
+    public char getType()
+    {
+        return 'V';
     }
 
 }

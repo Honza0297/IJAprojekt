@@ -15,6 +15,7 @@ public interface Figure {
     void setPosition(Field boardField);
     void setInGame(boolean inGame);
     boolean isWhite();
+    char getType();
 
     //For Undo
     void forceMove(Field moveTo);

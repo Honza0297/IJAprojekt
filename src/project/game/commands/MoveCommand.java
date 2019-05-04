@@ -29,6 +29,24 @@ public class MoveCommand implements Command {
             wasKilled.forceSetInGame(true);
             wasKilled.forceMove(to);
         }
+    }
 
+    public Figure getWasKilled() {
+        return wasKilled;
+    }
+
+    public Figure getMoving() {
+        return moving;
+    }
+
+    @Override
+    public Field getTo() {
+        return to;
+    }
+
+    @Override
+    public Field getFrom()
+    {
+        return from;
     }
 }

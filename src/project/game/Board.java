@@ -2,6 +2,10 @@ package project.game;
 
 
 import project.common.Field;
+import project.common.Figure;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Board
 {
@@ -73,6 +77,27 @@ public class Board
     {
         int newCol = (int) col - (int) 'a' + 1; //column by char converted to col by int
         return getField(newCol, row);
+    }
+
+    /**
+     * Finds all figures of the right color on the board
+     * @param isWhite
+     * @return list of figures of the right color
+     */
+    public List<Figure> GetAllFigures(boolean isWhite)
+    {
+        List<Figure> figures = new ArrayList<>();
+        for(int i = 0; i < getSize(); i++)
+        {
+            for (int j = 0; j < getSize(); j++)
+            {
+                Field field = board[i][j];
+                if (!field.isEmpty())
+                    if(field.get().isWhite() == isWhite)
+                        figures.add(field.get());
+            }
+        }
+        return figures;
     }
 
     //TODO tady deklarovat enum pro figurky. Nebo ve Figure?

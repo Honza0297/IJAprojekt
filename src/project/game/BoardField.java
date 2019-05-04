@@ -28,7 +28,7 @@ public class BoardField implements Field
 
     /**
      * Debug function which prints surrounding
-     * FIXME delete before release
+     * note funkce jen pro debug
      */
     public void printSurrounding() {
         System.out.printf("Kamen na souradnicich: %d %d \n", this.myCol, this.myRow);
@@ -143,6 +143,12 @@ public class BoardField implements Field
     {
         return (char) (myCol + 'a' - 1);
     }
+
+    @Override
+    public Field getNeigbour(int indexToSurrounding) {
+        return this.surrounding[indexToSurrounding];
+    }
+
 
     //checks if the field contains a figure of the opposite color of isWhite
     public boolean containsEnemy(boolean isWhite) {

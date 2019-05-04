@@ -15,7 +15,7 @@ public interface Field
     int getCol();
     boolean containsEnemy(boolean isWhite);
     char getColAsChar();
-
+    Field getNeigbour(int indexToSurrounding);
     void kill();
 
 

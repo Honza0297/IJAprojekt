@@ -5,15 +5,17 @@ import project.common.Game;
 import project.game.Board;
 import project.game.ChessGame;
 
+import java.io.IOException;
+
 public abstract class GameFactory {
     public GameFactory()
     {
 
     }
 
-    public static Game createChessGame(Board board)
+    public static Game createChessGame(Board board, String filename) throws IOException
     {
-        return new ChessGame(board);
+        return new ChessGame(board, filename);
     }
 
 

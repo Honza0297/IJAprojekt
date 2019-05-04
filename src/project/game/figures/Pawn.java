@@ -6,7 +6,7 @@ import project.common.Figure;
 
 public class Pawn extends FigureBase implements Figure
 {
-
+//todo berry - prvni tah  pesce muze byt o dve policka!
     public Pawn(boolean isWhite)
     {
         this.isItWhite = isWhite;
@@ -47,14 +47,14 @@ public class Pawn extends FigureBase implements Figure
     }
 
     //both two possibilities checked (straight and diagonal)
-    //NOTE Only here canIMove checks even moveTo (because it is necessary to check legality of move)
+    //NOTE Only here canIMove checks even moveTo (because it is necessary to check legality of moveGUI)
     public boolean canIMoveTo(Field moveTo) {
         //common
         if(!canIMoveBasic(this.whereAmI, moveTo))
         {
             return false;
         }
-        //Check if going only by one row
+        //Check if going only by one row //TODO BERRY prvni tah muze o 2 policka
         if((isWhite() && (moveTo.getRow() != this.whereAmI.getRow()+1)) ||
                 (!isWhite() && (moveTo.getRow() != this.whereAmI.getRow()-1)))
         {
@@ -80,5 +80,11 @@ public class Pawn extends FigureBase implements Figure
                     return false;
             }
         }
+    }
+
+    @Override
+    public char getType()
+    {
+        return 'P';
     }
 }

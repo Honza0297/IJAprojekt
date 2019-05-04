@@ -1,6 +1,8 @@
 package project.game;
 
+import javafx.collections.ObservableList;
 import project.common.Field;
+import project.common.IReaderWriter;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,7 +14,7 @@ public class Parser
     String pattern1 = "^";
     String patternShort = "\\. ([S,K,V,D,J])?([a-h])([1-8]) ([S,K,V,D,J])?([a-h])([1-8])$";
     String patternLong = "\\. ([S,K,V,D,J])?([a-h])([1-8])([a-h])([1-8]) ([S,K,V,D,J])?([a-h])([1-8])([a-h])([1-8])$";
-
+    //todo promena pěšec ->??
     public Parser(IReaderWriter readerWriter, Board board)
     {
         this.readerWriter = readerWriter;
@@ -29,7 +31,8 @@ public class Parser
         String line;
         Pattern r;
         Matcher m;
-        for(int i = 0; (line = readerWriter.GetLine(i)) != null; i++)
+        int i;
+        for(i = 0; (line = readerWriter.GetLine(i)) != null; i++)
         {
             r = Pattern.compile(pattern1 + Integer.toString(i+1) + patternShort);
             m = r.matcher(line);
@@ -62,6 +65,8 @@ public class Parser
                     return null;
             }
         }
+        if(i == 0) //unsuccessful reading
+            return null;
         return gameNotation;
     }
 
@@ -73,28 +78,33 @@ public class Parser
      */
     public boolean SaveGameNotation(InnerGameNotation gameNotation, String filename)
     {
-        return readerWriter.Save(FromGameNotation(gameNotation), filename);
+        return readerWriter.Save(FromInnerGameNotation(gameNotation), filename);
     }
 
     /**
-     * Converts innerGameNotation to official notation (string)
+     * Converts innerGameNotation to official notation (string), also used for reloading observable list for ListView
      * @param gameNotation
      * @return String with official notation of game
      */
-    public String FromGameNotation(InnerGameNotation gameNotation)
+    public String FromInnerGameNotation(InnerGameNotation gameNotation)
     {
+        ObservableList<String> notation = readerWriter.GetNotation();
+        notation.clear();
         String line;
-        StringBuilder gameInString = new StringBuilder();
+        StringBuilder retStr = new StringBuilder();
         for(int i = 0;(line = FromInnerMoveNotation(gameNotation, i)) != null;i = i + 2)
-            gameInString.append(line);
+        {
+            notation.add(line);
+            retStr.append(line);
+        }
 
-        return gameInString.toString();
+        return retStr.toString();
     }
 
     /**
      * Converts two innerMoveNotations from InnerGameNotation to string - official notation
      * @param gameNotation Must have not null Fields from and to
-     * @param whiteMoveIndex Index of move of white figure
+     * @param whiteMoveIndex Index of moveGUI of white figure
      * @return string line with long notation
      */
     public String FromInnerMoveNotation(InnerGameNotation gameNotation, int whiteMoveIndex)
@@ -148,6 +158,6 @@ public class Parser
         if(fromGroup != null)
             return fromGroup.charAt(0);
         else
-            return 'n'; //todo ten typ nejak upravit
+            return 'P'; //pesak
     }
 }

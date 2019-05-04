@@ -45,27 +45,28 @@ public class King extends FigureBase implements Figure
         return false;
     }
 
-    //checks of king moves only by one field. emptity of moveTo not tested
+    //checks of king moves only by one field.
     public boolean canIMoveTo(Field moveTo) {
         if(!canIMoveBasic(whereAmI, moveTo))
         {
             return false;
         }
-
         boolean contains = false;
-        Field temp;
         for(int i = 0; i < 8; i++)
         {
-            if(whereAmI.surrounding[i].getRow() == moveTo.getRow()) //moveTo is off-by-one
+            Field field = whereAmI.getNeigbour(i);
+            if(field != null && field.getRow() == moveTo.getRow()) // moveTo is off-by-one
             {
-                if(!whereAmI.surrounding[i].isEmpty() && (whereAmI.surrounding[i].get().isWhite() != this.isWhite()))
-                {
                     contains = true;
-                    temp = whereAmI.surrounding[i];
                     break;
-                }
             }
         }
         return contains;
+    }
+
+    @Override
+    public char getType()
+    {
+        return 'K';
     }
 }

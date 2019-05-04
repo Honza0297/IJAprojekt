@@ -8,27 +8,55 @@ import java.util.Stack;
 public class MoveInvoker implements Invoker
 {
     private Stack<Command> undoStack;
+    private Stack<Command> redoStack;
 
     public MoveInvoker(){
         undoStack = new Stack<Command>();
+        redoStack = new Stack<Command>();
     }
 
 
-    public boolean execute(Command cmd) {
-
+    public Command execute(Command cmd)
+    {
         boolean succeeded = cmd.execute();
         if(succeeded)
         {
             undoStack.push(cmd);
+            return cmd;
         }
-        return succeeded;
-
+        else
+        {
+            return null;
+        }
     }
 
-    public void undo() {
+    public Command undo(boolean redoEnabled) {
         if(!undoStack.empty()) {
             Command cmd = undoStack.pop();
             cmd.undo();
+            if(redoEnabled)
+            {
+                redoStack.push(cmd);
+            }
+            return cmd;
         }
+        return null;
+    }
+
+    /**
+     * Method redos rule from redoStack - just redirects cmd from redostack to execute.
+     * @return cmd or null
+     */
+    @Override
+    public Command redo() {
+        if(redoStack.empty())
+            return null;
+        return this.execute(redoStack.pop());
+
+    }
+
+    @Override
+    public void deleteRedoStack() {
+        this.redoStack.clear();
     }
 }

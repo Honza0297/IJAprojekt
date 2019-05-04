@@ -78,4 +78,10 @@ public class Bishop extends FigureBase implements Figure
         }
         return true;
     }
+
+    @Override
+    public char getType()
+    {
+        return 'S';
+    }
 }

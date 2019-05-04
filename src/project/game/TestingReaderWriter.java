@@ -1,9 +1,15 @@
 package project.game;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import project.common.IReaderWriter;
+
+import java.util.Arrays;
+
 public class TestingReaderWriter implements IReaderWriter
 {
-    private String vstup[] = {"1. e4 e5\n",
-            "2. Sc4 Df6\n",
+    private String vstup[] = {"1. a3 d6\n",
+            "2. d3 Jc6\n",
             "3. e2e4 e7e5\n",
             "4. Sf1c4 Dd8f6\n"}; //todo sach, mat, posledni tah jen jedne figurky
 
@@ -20,4 +26,12 @@ public class TestingReaderWriter implements IReaderWriter
         System.out.println(gameNotation);
         return true;
     }
+
+    public ObservableList<String> GetNotation()
+    {
+        ObservableList<String> ret = FXCollections.observableArrayList();
+        ret.addAll(Arrays.asList(vstup));
+        return ret;
+    }
+
 }
