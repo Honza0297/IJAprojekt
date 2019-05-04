@@ -32,11 +32,12 @@ public class FirstViewController implements Initializable {
         openTabMI.setOnAction((event)->{
             createTabDynamically();
         });
-
+//smazat
+        /*
         newNotationGameOpenTab.setOnAction((event)->{
             newNotationGameOpenTab();
         });
-
+*/
         closeMI.setOnAction((event)->{Platform.exit();});
     }
 
@@ -55,6 +56,8 @@ public class FirstViewController implements Initializable {
         }
     }
 
+    //smazat
+/*
     private void newNotationGameOpenTab()
     {
         Stage stage = new Stage();
@@ -79,4 +82,5 @@ public class FirstViewController implements Initializable {
             e.printStackTrace();
         }
     }
+    */
 }
