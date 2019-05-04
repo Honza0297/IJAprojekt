@@ -6,6 +6,7 @@ import project.common.Figure;
 
 public class Pawn extends FigureBase implements Figure
 {
+    private boolean firstMove = true;
 //todo berry - prvni tah  pesce muze byt o dve policka!
     public Pawn(boolean isWhite)
     {
@@ -54,9 +55,15 @@ public class Pawn extends FigureBase implements Figure
         {
             return false;
         }
-        //Check if going only by one row //TODO BERRY prvni tah muze o 2 policka
-        if((isWhite() && (moveTo.getRow() != this.whereAmI.getRow()+1)) ||
-                (!isWhite() && (moveTo.getRow() != this.whereAmI.getRow()-1)))
+        //Check if going only by one row
+        int distance = 1;
+        if(firstMove)
+        {
+            distance = 2;
+            firstMove = false;
+        }
+        if((isWhite() && (moveTo.getRow() != this.whereAmI.getRow()+distance)) ||
+                (!isWhite() && (moveTo.getRow() != this.whereAmI.getRow()-distance)))
         {
             return false;
         }
