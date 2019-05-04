@@ -1,5 +1,7 @@
 package sample;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,12 +12,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import project.GameFactory;
 import project.ImpossibleMoveException;
 import project.common.Command;
@@ -32,6 +37,7 @@ public class SecondViewController implements Initializable {
     private int userOn;
     private Game game;
     private Board board;
+    private File notationFile;
 
     //only for user's moves
     private Field from;
@@ -52,6 +58,11 @@ public class SecondViewController implements Initializable {
     @FXML
     private Button StopButton;
     @FXML
+    private Button jumpButton;
+    @FXML
+    private Button exportButton;
+
+    @FXML
     private GridPane grid;
     @FXML
     private ListView movesListView;
@@ -71,7 +82,7 @@ public class SecondViewController implements Initializable {
     private Image whiteKing = new Image("WhiteKing.png");
     private Image whiteQueen = new Image("WhiteQueen.png");
 
-    private Image transparent = new Image("transparentImage.png");
+    private Image transparent = new Image("BlackQueenSelected.png");//"transparentImage.png");
     private Image transparentSelected = new Image("transparentImageSelected.png");
 
     private Image blackPawnSelected = new Image("BlackPawnSelected.png");
@@ -88,6 +99,11 @@ public class SecondViewController implements Initializable {
     private Image whiteKnightSelected = new Image("WhiteKnightSelected.png");
     private Image whiteKingSelected = new Image("WhiteKingSelected.png");
     private Image whiteQueenSelected = new Image("WhiteQueenSelected.png");
+
+    public void setNotationFile(File notationFile)
+    {
+        this.notationFile = notationFile;
+    }
 
     public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane)
     {
@@ -113,7 +129,10 @@ public class SecondViewController implements Initializable {
     @FXML
     public void StartGame(ActionEvent e)
     {
-
+        if(notationFile != null)
+            System.out.println(notationFile.toString());
+        else
+            System.out.println("file je null");
     }
 
     @FXML
@@ -154,7 +173,6 @@ public class SecondViewController implements Initializable {
                     return;
                 }
 
-                userOn++;
                 to = clickedField;
                 TryUsersMove();
                 toImage = null;
@@ -162,7 +180,6 @@ public class SecondViewController implements Initializable {
                 to = null;
                 from = null;
             }
-            System.out.println("ckliknuto na obr");
         }
     };
 
@@ -175,6 +192,7 @@ public class SecondViewController implements Initializable {
         try
         {
             moveGUI(game.doUsersMove(moveNotation), false);
+            userOn++;
         }
         catch (ImpossibleMoveException ime)
         {
@@ -407,6 +425,9 @@ public class SecondViewController implements Initializable {
         SetActualMoveOnListView();
     }
 
+    //todo berry pri nemoznem tahu ti zustane oznacena figurka
+    //TODO BERRY PRIORITA! pri pokusu tahnout z prazdneho pole se ti ztrati image z daneho pole a nelze na nej tedy uz nikdy kliknout
+
     private Image getImageSelectedByClass(Figure figure) {
         Image returnImage = null;
         if(figure == null)
@@ -473,9 +494,11 @@ public class SecondViewController implements Initializable {
     {
         try
         {
+
+
             userOn = 0;
             board = new Board(8);
-            game = GameFactory.createChessGame(board);
+            game = GameFactory.createChessGame(board,"C:\\Users\\danbu\\source\\java\\src\\notace.txt");
 
             //manager = new ChessManager(grid, game, board);
             BackgroundImage bi = new BackgroundImage(new Image("whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
@@ -485,10 +508,23 @@ public class SecondViewController implements Initializable {
 
             movesListView.setItems(game.getNotation());
             movesListView.getSelectionModel().select(0);
+
+            if(notationFile != null)
+                System.out.println(notationFile.toString());
+            else
+                System.out.println("file je null");
         }
         catch (IOException e)
         {
             System.err.println("nepovedlo se cist"); //fixme
+            nextButton.setDisable(true);
+            undoButton.setDisable(true);
+            backButton.setDisable(true);
+            redoButton.setDisable(true);
+            StopButton.setDisable(true);
+            StartButton.setDisable(true);
+            jumpButton.setDisable(true);
+            exportButton.setDisable(true);
         }
     }
 

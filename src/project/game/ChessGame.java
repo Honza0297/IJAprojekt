@@ -22,13 +22,13 @@ public class ChessGame implements Game {
     private InnerGameNotation gameNotation;
     private int moveIndex; //cislo aktualniho tahu
 
-    public ChessGame(Board board) throws IOException
+    public ChessGame(Board board, String filename) throws IOException
     {
         chessBoard = board;
         SetBoard(chessBoard);
 
         invoker = new MoveInvoker();
-        parser = new Parser(new NotationReaderWriter("C:\\Users\\janbe\\Sources\\IntelliJIdea\\IJAproj\\src\\notace.txt"), chessBoard); //todo jmeno souboru
+        parser = new Parser(new NotationReaderWriter(filename), chessBoard);
         gameNotation = parser.ParseGameToInner(); //fixme
         if(gameNotation == null)
         {
@@ -40,6 +40,8 @@ public class ChessGame implements Game {
 
     private void SetBoard(Board board) {
         int max = board.getSize();
+
+        //todo smazat
         /*
         board.getField(1, 1).put(new Rook(true));
         board.getField(max, 1).put(new Rook(true));
@@ -123,9 +125,16 @@ public class ChessGame implements Game {
         }
     }
 
-    //todo denny uzivatelske tahy - hlidat, aby se stridaly barvy
-    private Command move(Figure figure, Field field) //todo denny vyresit tahy z prazdneho policka!
-        {
+    /**
+     * Tries to execute move
+     * @param figure
+     * @param field
+     * @return null if impossible move or filled Command
+     */
+    private Command move(Figure figure, Field field)
+    {
+        if(figure == null)
+            return null;
         Command cmd = new MoveCommand(figure, figure.getPositionField(), field, field.get());
         return invoker.execute(cmd);
     }
@@ -158,7 +167,9 @@ public class ChessGame implements Game {
 
     public boolean canUndo()
     {
-        System.err.printf("moveIndex: %d getusize %d\n", moveIndex, gameNotation.GetSize());
+        //smazat System.err.printf("moveIndex: %d getusize %d\n", moveIndex, gameNotation.GetSize());
+        if(moveIndex == 0)
+            return false;
         return moveIndex == gameNotation.GetSize();
     }
 
@@ -185,9 +196,9 @@ public class ChessGame implements Game {
     }
 
     /**
-     * Increases moveIndex, gets the moveGUI from gameNotation, finds the right figure to do the moveGUI and does the moveGUI
-     * @return Command with the moveGUI or null if next moveGUI is not possible (there are no more notated moves)
-     * @throws ImpossibleMoveException in case of no found figure to do the moveGUI from gameNotation
+     * Increases moveIndex, gets the move from gameNotation, finds the right figure to do the move and does the move
+     * @return Command with the move or null if next move is not possible (there are no more notated moves)
+     * @throws ImpossibleMoveException in case of no found figure to do the move from gameNotation
      */
     @Override
     public Command nextMove() throws ImpossibleMoveException
@@ -201,7 +212,10 @@ public class ChessGame implements Game {
         {
             Command cmd = move(moveNotation.fieldFrom.get(), moveNotation.fieldTo); //todo pokud zbyde cas, zkontrolovat jestli to sedi s typem figurky
             if(cmd == null)
+            {
+                moveIndex--;
                 throw new ImpossibleMoveException(moveIndex);
+            }
             else
                 return cmd;
         }
@@ -220,6 +234,7 @@ public class ChessGame implements Game {
                     }
                 }
             }
+            moveIndex--;
             throw new ImpossibleMoveException(moveIndex);
         }
     }
@@ -230,14 +245,35 @@ public class ChessGame implements Game {
         return moveIndex;
     }
 
+    /**
+     * Do moves initiated by user using GUI
+     * @param moveNotation
+     * @return
+     * @throws ImpossibleMoveException
+     */
     @Override
     public Command doUsersMove(InnerMoveNotation moveNotation) throws ImpossibleMoveException
     {
-        gameNotation.DeleteMovesFromIndexToEnd(moveIndex);
-        invoker.deleteRedoStack();
-        gameNotation.AddMove(moveNotation);
-        parser.FromInnerGameNotation(gameNotation);
-        return nextMove();
+        try
+        {
+            if(moveNotation.isWhite == null)
+                throw new ImpossibleMoveException(moveIndex);
+            if((moveIndex%2 == 1 && moveNotation.isWhite) || (moveIndex%2 == 0 && !moveNotation.isWhite))
+                throw new ImpossibleMoveException(moveIndex);
+            gameNotation.DeleteMovesFromIndexToEnd(moveIndex);
+            invoker.deleteRedoStack();
+            gameNotation.AddMove(moveNotation);
+            parser.FromInnerGameNotation(gameNotation);
+            return nextMove();
+        }
+        catch (ImpossibleMoveException e)
+        {
+            gameNotation.DeleteMovesFromIndexToEnd(moveIndex);
+            invoker.deleteRedoStack();
+            parser.FromInnerGameNotation(gameNotation);
+            throw e;
+        }
+
     }
 
     public ObservableList<String> getNotation()

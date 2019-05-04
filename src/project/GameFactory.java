@@ -13,9 +13,9 @@ public abstract class GameFactory {
 
     }
 
-    public static Game createChessGame(Board board) throws IOException
+    public static Game createChessGame(Board board, String filename) throws IOException
     {
-        return new ChessGame(board);
+        return new ChessGame(board, filename);
     }
 
 

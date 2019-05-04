@@ -82,7 +82,7 @@ public class Parser
     }
 
     /**
-     * Converts innerGameNotation to official notation (string)
+     * Converts innerGameNotation to official notation (string), also used for reloading observable list for ListView
      * @param gameNotation
      * @return String with official notation of game
      */
@@ -91,10 +91,14 @@ public class Parser
         ObservableList<String> notation = readerWriter.GetNotation();
         notation.clear();
         String line;
+        StringBuilder retStr = new StringBuilder();
         for(int i = 0;(line = FromInnerMoveNotation(gameNotation, i)) != null;i = i + 2)
+        {
             notation.add(line);
+            retStr.append(line);
+        }
 
-        return notation.toString(); //fixme nejspis to bude vracet ve spatnem formatu
+        return retStr.toString();
     }
 
     /**

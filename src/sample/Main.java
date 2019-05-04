@@ -4,8 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-//TODO DENNY Opravit, aby se do ineergamenotation nezapisovaly nemozne tahy (napr tah pesce do strany)
+
+import java.io.File;
 //todo denny otevirani vstupniho souboru
 //todo automaticke prehravani
 //todo berry & denny zmena figurky - pesec na konci sachovnice (rosada pokud zbyde cas - berry)
