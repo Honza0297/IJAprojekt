@@ -1,7 +1,6 @@
 package project.common;
 
 import javafx.collections.ObservableList;
-import jdk.internal.org.objectweb.asm.tree.InnerClassNode;
 import project.ImpossibleMoveException;
 import project.game.InnerGameNotation;
 import project.game.InnerMoveNotation;

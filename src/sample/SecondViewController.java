@@ -1,6 +1,5 @@
 package sample;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -12,15 +11,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import project.GameFactory;
 import project.ImpossibleMoveException;
 import project.common.Command;
@@ -30,7 +26,6 @@ import project.common.Game;
 import project.game.Board;
 import project.game.InnerMoveNotation;
 import project.game.figures.*;
-
 
 public class SecondViewController implements Initializable {
 
@@ -67,36 +62,37 @@ public class SecondViewController implements Initializable {
     @FXML
     private ListView movesListView;
 
-    private Image blackPawn = new Image("BlackPawn.png");
-    private Image blackRook = new Image("BlackRook.png");
-    private Image blackBishop = new Image("BlackBishop.png");
-    private Image blackKnight = new Image("BlackKnight.png");
-    private Image blackKing = new Image("BlackKing.png");
-    private Image blackQueen = new Image("BlackQueen.png");
+    private Image blackPawn = new Image("file:lib/BlackPawn.png");
+    private Image blackRook = new Image("file:lib/BlackRook.png");
+    private Image blackBishop = new Image("file:lib/BlackBishop.png");
+    private Image blackKnight = new Image("file:lib/BlackKnight.png");
+    private Image blackKing = new Image("file:lib/BlackKing.png");
+    private Image blackQueen = new Image("file:lib/BlackQueen.png");
 
-    private Image whitePawn = new Image("WhitePawn.png");
-    private Image whiteRook = new Image("WhiteRook.png");
-    private Image whiteBishop = new Image("WhiteBishop.png");
-    private Image whiteKnight = new Image("WhiteKnight.png");
-    private Image whiteKing = new Image("WhiteKing.png");
-    private Image whiteQueen = new Image("WhiteQueen.png");
+    private Image whitePawn = new Image("file:lib/WhitePawn.png");
 
-    private Image transparent = new Image("transparentImage.png");
-    private Image transparentSelected = new Image("transparentImageSelected.png");
+    private Image whiteRook = new Image("file:lib/WhiteRook.png");
+    private Image whiteBishop = new Image("file:lib/WhiteBishop.png");
+    private Image whiteKnight = new Image("file:lib/WhiteKnight.png");
+    private Image whiteKing = new Image("file:lib/WhiteKing.png");
+    private Image whiteQueen = new Image("file:lib/WhiteQueen.png");
 
-    private Image blackPawnSelected = new Image("BlackPawnSelected.png");
-    private Image blackRookSelected = new Image("BlackRookSelected.png");
-    private Image blackBishopSelected = new Image("BlackBishopSelected.png");
-    private Image blackKnightSelected = new Image("BlackKnightSelected.png");
-    private Image blackKingSelected = new Image("BlackKingSelected.png");
-    private Image blackQueenSelected = new Image("BlackQueenSelected.png");
+    private Image transparent = new Image("file:lib/transparentImage.png");
+    private Image transparentSelected = new Image("file:lib/transparentImageSelected.png");
 
-    private Image whitePawnSelected = new Image("WhitePawnSelected.png");
-    private Image whiteRookSelected = new Image("WhiteRookSelected.png");
-    private Image whiteBishopSelected = new Image("WhiteBishopSelected.png");
-    private Image whiteKnightSelected = new Image("WhiteKnightSelected.png");
-    private Image whiteKingSelected = new Image("WhiteKingSelected.png");
-    private Image whiteQueenSelected = new Image("WhiteQueenSelected.png");
+    private Image blackPawnSelected = new Image("file:lib/BlackPawnSelected.png");
+    private Image blackRookSelected = new Image("file:lib/BlackRookSelected.png");
+    private Image blackBishopSelected = new Image("file:lib/BlackBishopSelected.png");
+    private Image blackKnightSelected = new Image("file:lib/BlackKnightSelected.png");
+    private Image blackKingSelected = new Image("file:lib/BlackKingSelected.png");
+    private Image blackQueenSelected = new Image("file:lib/BlackQueenSelected.png");
+
+    private Image whitePawnSelected = new Image("file:lib/WhitePawnSelected.png");
+    private Image whiteRookSelected = new Image("file:lib/WhiteRookSelected.png");
+    private Image whiteBishopSelected = new Image("file:lib/WhiteBishopSelected.png");
+    private Image whiteKnightSelected = new Image("file:lib/WhiteKnightSelected.png");
+    private Image whiteKingSelected = new Image("file:lib/WhiteKingSelected.png");
+    private Image whiteQueenSelected = new Image("file:lib/WhiteQueenSelected.png");
 
     public void setNotationFile(File notationFile)
     {
@@ -499,7 +495,7 @@ public class SecondViewController implements Initializable {
             game = GameFactory.createChessGame(board,"C:\\Users\\janbe\\Sources\\IntelliJIdea\\IJAproj\\src\\notace.txt");
 
             //manager = new ChessManager(grid, game, board);
-            BackgroundImage bi = new BackgroundImage(new Image("whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+            BackgroundImage bi = new BackgroundImage(new Image("file:lib/whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
             grid.setBackground(new Background(bi));
 
             setBasicPositions();
