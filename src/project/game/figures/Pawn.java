@@ -7,7 +7,6 @@ import project.common.Figure;
 public class Pawn extends FigureBase implements Figure
 {
     private boolean firstMove = true;
-//todo berry - prvni tah  pesce muze byt o dve policka!
     public Pawn(boolean isWhite)
     {
         this.isItWhite = isWhite;
@@ -28,7 +27,10 @@ public class Pawn extends FigureBase implements Figure
         }
         return "Pawn["+color+"]"+this.whereAmI.getCol()+":"+this.whereAmI.getRow();
     }
-
+    public void setFirstMove(boolean value)
+    {
+        this.firstMove = value;
+    }
     public boolean move(Field moveTo) {
         if(!canIMoveTo(moveTo))
         {

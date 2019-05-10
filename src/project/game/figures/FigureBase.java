@@ -20,6 +20,18 @@ public class FigureBase {
             forceSetInGame(true);
         }
         moveTo.put((Figure) this);
+        checkIfPawnsFirst(moveTo);
+    }
+
+    private void checkIfPawnsFirst(Field moveTo) {
+        if(this.getClass() == Pawn.class)
+        {
+            if((this.isWhite() && moveTo.getRow() == 2) || (!this.isWhite() && moveTo.getRow() == 7 ))
+            {
+                ((Pawn)this).setFirstMove(true);
+            }
+        }
+
     }
 
     public void forceSetInGame(boolean isIt) {
