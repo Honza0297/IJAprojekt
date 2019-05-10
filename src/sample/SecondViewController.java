@@ -124,9 +124,7 @@ public class SecondViewController implements Initializable {
     @FXML
     public void ReadNotationClicked(ActionEvent e)
     {
-        Stage stage = new Stage();
-        final FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showOpenDialog(stage);
+        File file = showFileChooser(false);
         if(file != null)
             setGameFromNotation(file);
     }
@@ -324,9 +322,7 @@ public class SecondViewController implements Initializable {
     @FXML
     public void ExportButtonClicked(ActionEvent e)
     {
-        Stage stage = new Stage();
-        final FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showSaveDialog(stage);
+        File file = showFileChooser(true);
         if(file == null)
             return;
 
@@ -334,6 +330,24 @@ public class SecondViewController implements Initializable {
         {
             System.err.println("Nebylo mozno vyexportovat notaci. AKA Nepovedl se zapis."); //todo handle
         }
+    }
+
+    /**
+     * Zobrazi okno pro otevreni/ulozeni souboru s notaci
+     * @param save pokud true, potom se otevre okno pro ulozeni, pokud false, otevre se okno pro vyber souboru
+     * @return null pokud byla akce zrusena, jinak File
+     */
+    private File showFileChooser(boolean save)
+    {
+        Stage stage = new Stage();
+        final FileChooser fileChooser = new FileChooser();
+        if(save)
+        {
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
+            return fileChooser.showSaveDialog(stage);
+        }
+        else
+            return fileChooser.showOpenDialog(stage);
     }
 
 
