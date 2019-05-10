@@ -127,9 +127,7 @@ public class SecondViewController implements Initializable {
         Stage stage = new Stage();
         final FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(stage);
-        if(file == null)
-            System.out.println("File je null uz tady"); //todo handle
-        else
+        if(file != null)
             setGameFromNotation(file);
     }
 
@@ -185,8 +183,6 @@ public class SecondViewController implements Initializable {
             }
         }
     };
-
-
 
 
     private void TryUsersMove()
@@ -328,13 +324,15 @@ public class SecondViewController implements Initializable {
     @FXML
     public void ExportButtonClicked(ActionEvent e)
     {
-        if(!game.getParser().SaveGameNotation(game.getGameNotation(),"vyexportovano.txt"))
+        Stage stage = new Stage();
+        final FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showSaveDialog(stage);
+        if(file == null)
+            return;
+
+        if(!game.getParser().SaveGameNotation(game.getGameNotation(), file.toString()))
         {
-            System.err.println("Nebylo mozno vyexportovat notaci. AKA Nepovedl se zapis.");
-        }
-        else
-        {
-            System.err.println("Povedl se zapis.");
+            System.err.println("Nebylo mozno vyexportovat notaci. AKA Nepovedl se zapis."); //todo handle
         }
     }
 
