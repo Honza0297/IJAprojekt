@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -127,7 +128,32 @@ public class SecondViewController implements Initializable {
     @FXML
     public void StartGame(ActionEvent e)
     {
-        }
+        Thread thread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                Runnable updater = new Runnable() {
+
+                    @Override
+                    public void run() {
+                        DoNextMove();
+                    }
+                };
+
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                    }
+                    Platform.runLater(updater);
+                }
+            }
+
+        });
+        // don't let thread prevent JVM shutdown
+        thread.setDaemon(true);
+        thread.start();
+    }
 
     @FXML
     public void StopGame(ActionEvent e)
@@ -555,4 +581,5 @@ public class SecondViewController implements Initializable {
     {
         movesListView.getSelectionModel().select(game.getActualMoveIndex()/2);
     }
+
 }
