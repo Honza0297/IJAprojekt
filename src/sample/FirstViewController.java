@@ -14,9 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
+
 
 public class FirstViewController implements Initializable {
 
@@ -32,19 +30,13 @@ public class FirstViewController implements Initializable {
         openTabMI.setOnAction((event)->{
             createTabDynamically();
         });
-//smazat
-        /*
-        newNotationGameOpenTab.setOnAction((event)->{
-            newNotationGameOpenTab();
-        });
-*/
+
         closeMI.setOnAction((event)->{Platform.exit();});
     }
 
     private void createTabDynamically() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("secondView.fxml"));
-        //loader.setController(new SecondViewController());
         try {
             Parent parent = loader.load();
             myDynamicTab = new Tab("Hra " + numberOfCreatedTabs++);
@@ -56,31 +48,5 @@ public class FirstViewController implements Initializable {
         }
     }
 
-    //smazat
-/*
-    private void newNotationGameOpenTab()
-    {
-        Stage stage = new Stage();
-        final FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showOpenDialog(stage);
-        if(file == null)
-            System.out.println("File je null uz tady");
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("secondView.fxml"));
-
-        //SecondViewController controller = new SecondViewController();
-
-        try {
-            Parent parent = loader.load();
-            SecondViewController controller = loader.<SecondViewController>getController();
-            controller.setNotationFile(file);
-            myDynamicTab = new Tab("Hra " + numberOfCreatedTabs++);
-            myDynamicTab.setClosable(true);
-            myDynamicTab.setContent(parent);
-            tabPane.getTabs().add(myDynamicTab);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    */
 }

@@ -15,6 +15,7 @@ public class Parser
     String patternShort = "\\. ([S,K,V,D,J])?([a-h])([1-8]) ([S,K,V,D,J])?([a-h])([1-8])$";
     String patternLong = "\\. ([S,K,V,D,J])?([a-h])([1-8])([a-h])([1-8]) ([S,K,V,D,J])?([a-h])([1-8])([a-h])([1-8])$";
     //todo promena pěšec ->??
+
     public Parser(IReaderWriter readerWriter, Board board)
     {
         this.readerWriter = readerWriter;
@@ -131,21 +132,30 @@ public class Parser
         }
 
         StringBuilder retStr = new StringBuilder(Integer.toString(whiteMoveIndex/2+1) + ". ");
-        retStr.append(move1.fieldFrom.getColAsChar());
-        retStr.append(move1.fieldFrom.getRow());
-        retStr.append(move1.fieldTo.getColAsChar());
-        retStr.append(move1.fieldTo.getRow());
+        getHalfMoveNotation(move1, retStr);
         retStr.append(" ");
         if(move2 != null)
         {
-            retStr.append(move2.fieldFrom.getColAsChar());
-            retStr.append(move2.fieldFrom.getRow());
-            retStr.append(move2.fieldTo.getColAsChar());
-            retStr.append(move2.fieldTo.getRow());
+            getHalfMoveNotation(move2, retStr);
         }
         retStr.append(System.getProperty("line.separator"));
 
         return retStr.toString();
+    }
+
+    /**
+     *
+     * @param move
+     * @param retStr
+     */
+    private void getHalfMoveNotation(InnerMoveNotation move, StringBuilder retStr)
+    {
+        if(move.movingFigureType != 'P')
+            retStr.append(move.movingFigureType);
+        retStr.append(move.fieldFrom.getColAsChar());
+        retStr.append(move.fieldFrom.getRow());
+        retStr.append(move.fieldTo.getColAsChar());
+        retStr.append(move.fieldTo.getRow());
     }
 
     /**
