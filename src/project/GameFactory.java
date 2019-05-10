@@ -19,4 +19,8 @@ public abstract class GameFactory {
     }
 
 
+    public static Game createChessGame(Board board) throws IOException
+    {
+        return new ChessGame(board);
+    }
 }

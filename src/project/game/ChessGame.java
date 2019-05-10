@@ -24,18 +24,34 @@ public class ChessGame implements Game {
 
     public ChessGame(Board board, String filename) throws IOException
     {
-        chessBoard = board;
-        SetBoard(chessBoard);
+        commonConstructor(board);
 
-        invoker = new MoveInvoker();
         parser = new Parser(new NotationReaderWriter(filename), chessBoard);
-        gameNotation = parser.ParseGameToInner(); //fixme
+        gameNotation = parser.ParseGameToInner();
         if(gameNotation == null)
         {
             System.out.println("Nepovedlo se nacist notaci!"); //fixme
             throw new IOException();
         }
+    }
+
+    public ChessGame(Board board)
+    {
+        commonConstructor(board);
+        parser = new Parser(new NotationReaderWriter(null), board);
+        gameNotation = new InnerGameNotation();
+    }
+
+    /**
+     * spolecna cast pro oba konstruktory
+     * @param board
+     */
+    private void commonConstructor(Board board)
+    {
         moveIndex = 0;
+        chessBoard = board;
+        SetBoard(chessBoard);
+        invoker = new MoveInvoker();
     }
 
     private void SetBoard(Board board) {
@@ -150,7 +166,12 @@ public class ChessGame implements Game {
     public Command backMove()
     {
         moveIndex--;
-        return invoker.undo(false);
+        Command tmp =invoker.undo(false);
+        if(tmp != null)
+            return tmp;
+
+        moveIndex++;
+        return null;
     }
 
     /**
@@ -167,7 +188,6 @@ public class ChessGame implements Game {
 
     public boolean canUndo()
     {
-        //smazat System.err.printf("moveIndex: %d getusize %d\n", moveIndex, gameNotation.GetSize());
         if(moveIndex == 0)
             return false;
         return moveIndex == gameNotation.GetSize();

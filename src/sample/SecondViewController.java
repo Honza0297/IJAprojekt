@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,6 +18,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import project.GameFactory;
 import project.ImpossibleMoveException;
 import project.common.Command;
@@ -32,7 +35,6 @@ public class SecondViewController implements Initializable {
     private int userOn;
     private Game game;
     private Board board;
-    private File notationFile;
 
     //only for user's moves
     private Field from;
@@ -94,10 +96,6 @@ public class SecondViewController implements Initializable {
     private Image whiteKingSelected = new Image("file:lib/WhiteKingSelected.png");
     private Image whiteQueenSelected = new Image("file:lib/WhiteQueenSelected.png");
 
-    public void setNotationFile(File notationFile)
-    {
-        this.notationFile = notationFile;
-    }
 
     public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane)
     {
@@ -110,7 +108,6 @@ public class SecondViewController implements Initializable {
             Integer mycol = GridPane.getColumnIndex(node);
             if(mycol== null)
                 mycol = 0;
-           // System.out.printf("%d %d\n", myrow, mycol);
             if(mycol == column && myrow == row)
             {
                 result = node;
@@ -121,12 +118,41 @@ public class SecondViewController implements Initializable {
     }
 
     @FXML
+    public void ReadNotationClicked(ActionEvent e)
+    {
+        File file = showFileChooser(false);
+        if(file != null)
+            setGameFromNotation(file);
+    }
+
+    @FXML
     public void StartGame(ActionEvent e)
     {
-        if(notationFile != null)
-            System.out.println(notationFile.toString());
-        else
-            System.out.println("file je null");
+        Thread thread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                Runnable updater = new Runnable() {
+
+                    @Override
+                    public void run() {
+                        DoNextMove();
+                    }
+                };
+
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                    }
+                    Platform.runLater(updater);
+                }
+            }
+
+        });
+        // don't let thread prevent JVM shutdown
+        thread.setDaemon(true);
+        thread.start();
     }
 
     @FXML
@@ -178,13 +204,14 @@ public class SecondViewController implements Initializable {
     };
 
 
-
-
     private void TryUsersMove()
     {
-        InnerMoveNotation moveNotation = new InnerMoveNotation(from, to, 'n');
         try
         {
+            if(from.get() == null)
+                throw new ImpossibleMoveException(game.getActualMoveIndex());
+
+            InnerMoveNotation moveNotation = new InnerMoveNotation(from, to, from.get().getType());
             moveGUI(game.doUsersMove(moveNotation), false);
             userOn++;
         }
@@ -319,14 +346,32 @@ public class SecondViewController implements Initializable {
     @FXML
     public void ExportButtonClicked(ActionEvent e)
     {
-        if(!game.getParser().SaveGameNotation(game.getGameNotation(),"vyexportovano.txt"))
+        File file = showFileChooser(true);
+        if(file == null)
+            return;
+
+        if(!game.getParser().SaveGameNotation(game.getGameNotation(), file.toString()))
         {
-            System.err.println("Nebylo mozno vyexportovat notaci. AKA Nepovedl se zapis.");
+            System.err.println("Nebylo mozno vyexportovat notaci. AKA Nepovedl se zapis."); //todo handle
+        }
+    }
+
+    /**
+     * Zobrazi okno pro otevreni/ulozeni souboru s notaci
+     * @param save pokud true, potom se otevre okno pro ulozeni, pokud false, otevre se okno pro vyber souboru
+     * @return null pokud byla akce zrusena, jinak File
+     */
+    private File showFileChooser(boolean save)
+    {
+        Stage stage = new Stage();
+        final FileChooser fileChooser = new FileChooser();
+        if(save)
+        {
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt"));
+            return fileChooser.showSaveDialog(stage);
         }
         else
-        {
-            System.err.println("Povedl se zapis.");
-        }
+            return fileChooser.showOpenDialog(stage);
     }
 
 
@@ -483,47 +528,58 @@ public class SecondViewController implements Initializable {
         }
         return returnImage;
     }
-    @Override
-    public void initialize(URL location, ResourceBundle resources)
+
+    /**
+     * zahájí novou hru podle předané notace
+     * @param notationFile
+     */
+    private void setGameFromNotation(File notationFile)
     {
         try
         {
-
-
             userOn = 0;
             board = new Board(8);
-            game = GameFactory.createChessGame(board,"C:\\Users\\janbe\\Sources\\IntelliJIdea\\IJAproj\\src\\notace.txt");
+            if(notationFile != null)
+                game = GameFactory.createChessGame(board,notationFile.toString());
+            else
+                game = GameFactory.createChessGame(board);
 
-            //manager = new ChessManager(grid, game, board);
-            BackgroundImage bi = new BackgroundImage(new Image("file:lib/whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-            grid.setBackground(new Background(bi));
-
-            setBasicPositions();
+            setChessBoardGUI();
 
             movesListView.setItems(game.getNotation());
             movesListView.getSelectionModel().select(0);
-
-            if(notationFile != null)
-                System.out.println(notationFile.toString());
-            else
-                System.out.println("file je null");
         }
         catch (IOException e)
         {
             System.err.println("nepovedlo se cist"); //fixme
-            nextButton.setDisable(true);
+           /* nextButton.setDisable(true);
             undoButton.setDisable(true);
             backButton.setDisable(true);
             redoButton.setDisable(true);
             StopButton.setDisable(true);
             StartButton.setDisable(true);
             jumpButton.setDisable(true);
-            exportButton.setDisable(true);
+            exportButton.setDisable(true);*/
         }
+    }
+
+    private void setChessBoardGUI()
+    {
+        BackgroundImage bi = new BackgroundImage(new Image("file:lib/whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        grid.setBackground(new Background(bi));
+
+        setBasicPositions();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        setGameFromNotation(null);
     }
 
     private void SetActualMoveOnListView()
     {
         movesListView.getSelectionModel().select(game.getActualMoveIndex()/2);
     }
+
 }
