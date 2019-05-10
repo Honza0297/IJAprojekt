@@ -1,6 +1,7 @@
 package project.game;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import project.common.IReaderWriter;
 
@@ -8,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
+import java.util.Observable;
 
 public class NotationReaderWriter implements IReaderWriter
 {
@@ -16,8 +18,16 @@ public class NotationReaderWriter implements IReaderWriter
 
     public NotationReaderWriter(String filenameForReading)
     {
-        file = null;
-        this.filenameForReading = filenameForReading;
+        if(filenameForReading == null)
+        {
+            file = FXCollections.observableArrayList();
+            this.filenameForReading = null;
+        }
+        else
+        {
+            file = null;
+            this.filenameForReading = filenameForReading;
+        }
     }
 
     @Override

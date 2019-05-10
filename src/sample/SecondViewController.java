@@ -95,12 +95,7 @@ public class SecondViewController implements Initializable {
     private Image whiteKingSelected = new Image("file:lib/WhiteKingSelected.png");
     private Image whiteQueenSelected = new Image("file:lib/WhiteQueenSelected.png");
 
-    /*
-    public void setNotationFile(File notationFile)
-    {
-        this.notationFile = notationFile;
-    }
-*/
+
     public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane)
     {
         Node result = null;
@@ -185,9 +180,12 @@ public class SecondViewController implements Initializable {
 
     private void TryUsersMove()
     {
-        InnerMoveNotation moveNotation = new InnerMoveNotation(from, to, 'n');
         try
         {
+            if(from.get() == null)
+                throw new ImpossibleMoveException(game.getActualMoveIndex());
+
+            InnerMoveNotation moveNotation = new InnerMoveNotation(from, to, from.get().getType());
             moveGUI(game.doUsersMove(moveNotation), false);
             userOn++;
         }
@@ -505,6 +503,10 @@ public class SecondViewController implements Initializable {
         return returnImage;
     }
 
+    /**
+     * zahájí novou hru podle předané notace
+     * @param notationFile
+     */
     private void setGameFromNotation(File notationFile)
     {
         try
@@ -514,7 +516,7 @@ public class SecondViewController implements Initializable {
             if(notationFile != null)
                 game = GameFactory.createChessGame(board,notationFile.toString());
             else
-                game = GameFactory.createChessGame(board,"bla");
+                game = GameFactory.createChessGame(board);
 
             setChessBoardGUI();
 
