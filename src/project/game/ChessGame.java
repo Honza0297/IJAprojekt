@@ -208,7 +208,7 @@ public class ChessGame implements Game {
         Command cmd = invoker.redo();
         if(cmd == null)
             return null;
-        gameNotation.AddMove(new InnerMoveNotation(cmd.getFrom(), cmd.getTo(), 'n'));
+        gameNotation.AddMove(new InnerMoveNotation(cmd.getFrom(), cmd.getTo(), cmd.getMoving().getType()));
         parser.FromInnerGameNotation(gameNotation);
         moveIndex++;
         return cmd;
