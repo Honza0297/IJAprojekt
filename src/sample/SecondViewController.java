@@ -21,6 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import project.EndOfGameException;
 import project.GameFactory;
 import project.ImpossibleMoveException;
 import project.common.Command;
@@ -243,6 +244,10 @@ public class SecondViewController implements Initializable {
             moveGUI(game.doUsersMove(moveNotation), false);
             userOn++;
         }
+        catch (EndOfGameException eofg)
+        {
+            System.out.println("konec hry!");
+        }
         catch (ImpossibleMoveException ime)
         {
             System.out.println("nemozny tah");
@@ -263,6 +268,10 @@ public class SecondViewController implements Initializable {
             }
             moveGUI(cmd, false);
             return true;
+        }
+        catch (EndOfGameException eofg)
+        {
+            System.out.println("konec gry");
         }
         catch (ImpossibleMoveException ime)
         {

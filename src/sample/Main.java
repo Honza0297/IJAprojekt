@@ -9,11 +9,11 @@ import javafx.stage.Stage;
 
 import java.io.File;
 //todo denny zabit autoplay vlakna pri ukonceni appky
+//todo denny nacteni notace s +, #, x, atd.. + notace ktera konci tahem bileho
 //todo nejaky problem s undo a redo
 //todo sachovnice ma mit popisky radku a sloupku
 //todo berry & denny zmena figurky - pesec na konci sachovnice (rosada pokud zbyde cas - berry)
 //todo denny opravit export bez user tahu
-//todo denny? ukonceni hry
 //todo zakazat tlacitka ve spravnych chvilich
 //todo misto konzoloveho vypisu objevit javovske messageboxy
 //todo berry? vycentrovat figurky

@@ -2,6 +2,7 @@ package project.game;
 
 
 import javafx.collections.ObservableList;
+import project.EndOfGameException;
 import project.ImpossibleMoveException;
 import project.common.Command;
 import project.common.Field;
@@ -21,6 +22,8 @@ public class ChessGame implements Game {
     private Parser parser;
     private InnerGameNotation gameNotation;
     private int moveIndex; //cislo aktualniho tahu
+    private Figure whiteKing;
+    private Figure blackKing;
 
     public ChessGame(Board board, String filename) throws IOException
     {
@@ -48,26 +51,22 @@ public class ChessGame implements Game {
      */
     private void commonConstructor(Board board)
     {
+        whiteKing = new King(true);
+        blackKing = new King(false);
+
         moveIndex = 0;
         chessBoard = board;
         SetBoard(chessBoard);
         invoker = new MoveInvoker();
     }
 
+    /**
+     * nastavi zakladni rozestaveni figurek na board
+     * @param board
+     */
     private void SetBoard(Board board) {
         int max = board.getSize();
 
-        //todo smazat
-        /*
-        board.getField(1, 1).put(new Rook(true));
-        board.getField(max, 1).put(new Rook(true));
-        board.getField(1, max).put(new Rook(false));
-        board.getField(max, max).put(new Rook(false));
-        for(int c = 1; c < max+1;c++)
-        {
-            board.getField(c, 2).put(new Pawn(true));
-            board.getField(c, max-1).put(new Pawn(false));
-        }*/
         for(int row = 1; row <= max; row++)
         {
             for(int col = 1; col <= max; col++)
@@ -92,7 +91,7 @@ public class ChessGame implements Game {
                                 board.getField(col, row).put(new Queen(true));
                                 break;
                             case 4:
-                                board.getField(col, row).put(new King(true));
+                                board.getField(col, row).put(whiteKing);
                                 break;
                             default:
                                 break;
@@ -128,7 +127,7 @@ public class ChessGame implements Game {
                                 board.getField(col, row).put(new Queen(false));
                                 break;
                             case 4:
-                                board.getField(col, row).put(new King(false));
+                                board.getField(col, row).put(blackKing);
                                 break;
                             default:
                                 break;
@@ -212,7 +211,6 @@ public class ChessGame implements Game {
         parser.FromInnerGameNotation(gameNotation);
         moveIndex++;
         return cmd;
-
     }
 
     /**
@@ -221,8 +219,11 @@ public class ChessGame implements Game {
      * @throws ImpossibleMoveException in case of no found figure to do the move from gameNotation
      */
     @Override
-    public Command nextMove() throws ImpossibleMoveException
+    public Command nextMove() throws ImpossibleMoveException, EndOfGameException
     {
+        if(isEndOfGame())
+            throw new EndOfGameException();
+
         if(moveIndex >= gameNotation.GetSize())
             return null;
 
@@ -293,11 +294,21 @@ public class ChessGame implements Game {
             parser.FromInnerGameNotation(gameNotation);
             throw e;
         }
-
     }
 
     public ObservableList<String> getNotation()
     {
         return parser.readerWriter.GetNotation();
+    }
+
+    /**
+     * Zjistuje jestli ziji oba kralove
+     * @return true pokud je nejaky kral mimo hru -> je konec hry, jinak false
+     */
+    private boolean isEndOfGame()
+    {
+        if(whiteKing.isInGame() && blackKing.isInGame())
+            return false;
+        return true;
     }
 }

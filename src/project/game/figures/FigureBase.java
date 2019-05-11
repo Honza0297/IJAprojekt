@@ -10,6 +10,11 @@ public class FigureBase {
     protected boolean inGame;
     protected Field whereAmI;
 
+    public boolean isInGame()
+    {
+        return inGame;
+    }
+
     public void forceMove(Field moveTo) {
         if(this.whereAmI != null)
         {
