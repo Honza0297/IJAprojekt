@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 //todo denny zabit autoplay vlakna pri ukonceni appky
+//todo berry po zabiti krale a snaze hrat, zustanou figurky oznacene
 //todo denny nacteni notace s +, #, x, atd.. + notace ktera konci tahem bileho
 //todo nejaky problem s undo a redo
 //todo sachovnice ma mit popisky radku a sloupku
