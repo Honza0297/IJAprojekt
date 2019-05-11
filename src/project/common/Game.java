@@ -1,6 +1,7 @@
 package project.common;
 
 import javafx.collections.ObservableList;
+import project.EndOfGameException;
 import project.ImpossibleMoveException;
 import project.game.InnerGameNotation;
 import project.game.InnerMoveNotation;
@@ -12,7 +13,7 @@ public interface Game {
     void undo();
     ObservableList<String> getNotation();
 
-    Command nextMove() throws ImpossibleMoveException;
+    Command nextMove() throws ImpossibleMoveException, EndOfGameException;
 
     int getActualMoveIndex();
 

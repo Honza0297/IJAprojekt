@@ -100,6 +100,8 @@ public class Board
         return figures;
     }
 
+
+
     //TODO tady deklarovat enum pro figurky. Nebo ve Figure?
 
 }

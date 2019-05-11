@@ -16,6 +16,7 @@ public interface Figure {
     void setInGame(boolean inGame);
     boolean isWhite();
     char getType();
+    boolean isInGame();
 
     //For Undo
     void forceMove(Field moveTo);
