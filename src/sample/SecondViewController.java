@@ -2,10 +2,10 @@ package sample;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -35,12 +36,15 @@ public class SecondViewController implements Initializable {
     private int userOn;
     private Game game;
     private Board board;
+    private AutoPlayThread thread; //thread for autoplay
+    private int defaultAutoplaySpeed = 1000;
 
     //only for user's moves
     private Field from;
     private Image fromImage;
     private Field to;
     private Image toImage;
+
 
     @FXML
     private Button nextButton;
@@ -58,7 +62,13 @@ public class SecondViewController implements Initializable {
     private Button jumpButton;
     @FXML
     private Button exportButton;
+    @FXML
+    private Button readNotationButton;
+    @FXML
+    private Button AutoPlaySpeedChangeButton;
 
+    @FXML
+    private TextField AutoPlaySpeedTextField;
     @FXML
     private GridPane grid;
     @FXML
@@ -126,38 +136,56 @@ public class SecondViewController implements Initializable {
     }
 
     @FXML
-    public void StartGame(ActionEvent e)
+    public void StartAutoPlay(ActionEvent e)
     {
-        Thread thread = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                Runnable updater = new Runnable() {
-
-                    @Override
-                    public void run() {
-                        DoNextMove();
-                    }
-                };
-
-                while (true) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException ex) {
-                    }
-                    Platform.runLater(updater);
-                }
-            }
-
-        });
-        // don't let thread prevent JVM shutdown
-        thread.setDaemon(true);
+        disableAutoplayButtons(true);
+        thread = new AutoPlayThread(this, getAutoPlaySpeed());
+        //thread.setDaemon(true);
         thread.start();
     }
 
-    @FXML
-    public void StopGame(ActionEvent e)
+    /**
+     * Ziska z textFieldu rychlost prehravani, pri spatnem formatu do nej nastavi defaultAutoplaySpeed
+     * @return pozadovanou rychlost nebo defaultAutoplaySpeed pri spatnem formatu
+     */
+    private int getAutoPlaySpeed()
     {
+        try
+        {
+            int speed = Integer.parseInt(AutoPlaySpeedTextField.getText());
+            if (speed <= 0)
+                throw new NumberFormatException();
+            return speed;
+        }
+        catch (NumberFormatException e)
+        {
+            AutoPlaySpeedTextField.setText(String.valueOf(defaultAutoplaySpeed));
+            return defaultAutoplaySpeed;
+        }
+    }
+
+    @FXML
+    public void StopAutoPlay(ActionEvent e)
+    {
+        disableAutoplayButtons(false);
+        thread.myStop();
+    }
+
+    /**
+     * Zmeni rychlost prehravani za behu, pokud se neprehrava, nedela nic
+     * @param e
+     */
+    @FXML
+    public void AutoPlaySpeedChangeButtonClicked(ActionEvent e)
+    {
+        try
+        {
+            thread.setSpeed(getAutoPlaySpeed());
+        }
+        catch (Exception ite)
+        {
+            return;
+        }
 
     }
 
@@ -223,7 +251,7 @@ public class SecondViewController implements Initializable {
         }
     }
 
-    private void DoNextMove()
+    public boolean DoNextMove()
     {
         try
         {
@@ -231,30 +259,42 @@ public class SecondViewController implements Initializable {
             if (cmd == null)
             {
                 System.out.println("dalsi tah neni");
-                return; //todo handle no nextMove
+                return false; //todo handle no nextMove
             }
             moveGUI(cmd, false);
+            return true;
         }
         catch (ImpossibleMoveException ime)
         {
             System.out.println("neemozny tah");
             //todo handle it
         }
+        return false;
     }
 
     private void setBasicPositions()
     {
+        ImageView im;
         for(int row = 0; row < 8; row++)
         {
             for(int col = 0; col < 8; col++)
             {
-                ImageView im = new ImageView();
-                grid.add(im,col, row);
+                Node existingImageView = getNodeByRowColumnIndex(row, col, grid); //in case of loading new game in existing tab
+                if (existingImageView == null)
+                {
+                    im = new ImageView();
+                    grid.add(im,col, row);
+                }
+                else
+                {
+                    im = (ImageView) existingImageView;
+                }
+
                 im.setPreserveRatio(true);
                 im.setFitHeight(100);
                 im.setPickOnBounds(true);
-                im.setImage(transparent);
                 im.setOnMouseClicked(imageClickedEventHandler);
+                im.setImage(transparent);
 
                 switch(row){
                     case 0:
@@ -548,18 +588,13 @@ public class SecondViewController implements Initializable {
 
             movesListView.setItems(game.getNotation());
             movesListView.getSelectionModel().select(0);
+
+            AutoPlaySpeedTextField.setText("1000");
         }
         catch (IOException e)
         {
             System.err.println("nepovedlo se cist"); //fixme
-           /* nextButton.setDisable(true);
-            undoButton.setDisable(true);
-            backButton.setDisable(true);
-            redoButton.setDisable(true);
-            StopButton.setDisable(true);
-            StartButton.setDisable(true);
-            jumpButton.setDisable(true);
-            exportButton.setDisable(true);*/
+            game = GameFactory.createChessGame(board);
         }
     }
 
@@ -568,7 +603,20 @@ public class SecondViewController implements Initializable {
         BackgroundImage bi = new BackgroundImage(new Image("file:lib/whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         grid.setBackground(new Background(bi));
 
+        disableAutoplayButtons(false);
+
         setBasicPositions();
+    }
+
+    /**
+     * Povoli nebo zakaze tlacitka, ktera mohou byt ovlivnena autoplayem
+     * @param isAutoplayActive
+     */
+    public void disableAutoplayButtons(boolean isAutoplayActive)
+    {
+        StartButton.setDisable(isAutoplayActive);
+        StopButton.setDisable(!isAutoplayActive);
+        readNotationButton.setDisable(isAutoplayActive);
     }
 
     @Override

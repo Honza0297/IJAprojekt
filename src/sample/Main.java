@@ -8,8 +8,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-//todo berry orpavit pěšce, aby se po vraceni jejich tahu mohli opet hybat o 2 policka (pro 1. tah)
-//todo automaticke prehravani
+//todo denny zabit autoplay vlakna pri ukonceni appky
+//todo nejaky problem s undo a redo
+//todo sachovnice ma mit popisky radku a sloupku
 //todo berry & denny zmena figurky - pesec na konci sachovnice (rosada pokud zbyde cas - berry)
 //todo denny opravit export bez user tahu
 //todo denny? ukonceni hry

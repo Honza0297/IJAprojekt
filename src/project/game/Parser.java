@@ -161,7 +161,7 @@ public class Parser
     /**
      * From char in string fromGroup gets the char meaning a figure type
      * @param fromGroup
-     * @return 'n' if string is null, other chars if not null
+     * @return 'P' if string is null, other chars if not null
      */
     private char getFigureType(String fromGroup)
     {
