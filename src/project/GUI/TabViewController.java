@@ -137,6 +137,10 @@ public class TabViewController implements Initializable {
         return result;
     }
 
+    /**
+     * Po kliknuti na tlacitko zobrazi filechooser a nastavi novou hru podle nactene notace
+     * @param e
+     */
     @FXML
     public void ReadNotationClicked(ActionEvent e)
     {
@@ -145,12 +149,15 @@ public class TabViewController implements Initializable {
             setGameFromNotation(file);
     }
 
+    /**
+     * Spusti autoplay.
+     * @param e
+     */
     @FXML
     public void StartAutoPlay(ActionEvent e)
     {
         disableAutoplayButtons(true);
         thread = new AutoPlayThread(this, getAutoPlaySpeed());
-        //thread.setDaemon(true);
         thread.start();
     }
 
@@ -174,6 +181,10 @@ public class TabViewController implements Initializable {
         }
     }
 
+    /**
+     * Vypne autoplay.
+     * @param e
+     */
     @FXML
     public void StopAutoPlay(ActionEvent e)
     {
@@ -199,12 +210,19 @@ public class TabViewController implements Initializable {
 
     }
 
+    /**
+     * Provede dalsi tah.
+     * @param e
+     */
     @FXML
     public void NextMoveButtonClicked(ActionEvent e)
     {
-        DoNextMove();
+        DoNextMove(true);
     }
 
+    /**
+     * Zajistuje zpracovani kliknuti na imageView. Do fieldu from a to nastavi policka na ktera bylo kliknuto.
+     */
     EventHandler<MouseEvent> imageClickedEventHandler = new EventHandler<MouseEvent>()
     {
         @Override
@@ -222,7 +240,6 @@ public class TabViewController implements Initializable {
             {
                 if(from == clickedField)
                 {
-                    System.err.println("from == clickedfield");
                     clickedImage.setImage(fromImage);
                     toImage = null;
                     fromImage = null;
@@ -242,6 +259,9 @@ public class TabViewController implements Initializable {
     };
 
 
+    /**
+     * Pokusi se vykonat tah zadany uzivatelem
+     */
     private void TryUsersMove()
     {
         try
@@ -255,42 +275,51 @@ public class TabViewController implements Initializable {
         }
         catch (EndOfGameException eofg)
         {
-            System.out.println("konec hry!");
+            AlertShower.endOfGameWarning();
             ((ImageView)getNodeByRowColumnIndex(from.getRow()-1, from.getCol()-1, grid)).setImage(fromImage);
         }
         catch (ImpossibleMoveException ime)
         {
-            System.out.println("nemozny tah");
+            AlertShower.impossibleMoveWarning();
             ((ImageView)getNodeByRowColumnIndex(from.getRow()-1, from.getCol()-1, grid)).setImage(fromImage);
-            //todo handle it
         }
     }
 
-    public boolean DoNextMove()
+    /**
+     * Pokusi se provest dalsi tah podle notace.
+     * @param showAlerts false, pokud se nema zobrazovat alert (v podstate jen kvuli autoplay)
+     * @return uspesnost provedeni tahu
+     */
+    public boolean DoNextMove(boolean showAlerts)
     {
         try
         {
             Command cmd = game.nextMove();
             if (cmd == null)
             {
-                System.out.println("dalsi tah neni");
-                return false; //todo handle no nextMove
+                if(showAlerts)
+                    AlertShower.noNextMoveWarning();
+                return false;
             }
             moveGUI(cmd, false);
             return true;
         }
         catch (EndOfGameException eofg)
         {
-            System.out.println("konec gry");
+            if(showAlerts)
+                AlertShower.endOfGameWarning();
         }
         catch (ImpossibleMoveException ime)
         {
-            System.out.println("neemozny tah");
-            //todo handle it
+            if(showAlerts)
+                AlertShower.impossibleMoveWarning();
         }
         return false;
     }
 
+    /**
+     * Rozestavi Imageviews se spravnymi obrazky na sachovnici.
+     */
     private void setBasicPositions()
     {
         ImageView im;
@@ -384,24 +413,40 @@ public class TabViewController implements Initializable {
         }
     }
 
+    /**
+     * Po kliknuti na tlacitko vrati uzivateluv tah.
+     * @param e
+     */
     @FXML
     public void UndoMoveButtonClicked(ActionEvent e)
     {
         DoUndoMove();
     }
+
+    /**
+     * Po kliknuti na tlacitko udela krok zpet v notaci.
+     * @param e
+     */
     @FXML
     public void BackMoveButtonClicked(ActionEvent e)
     {
         DoBackMove();
     }
 
-
+    /**
+     * Obnovi uzivatelsky tah.
+     * @param e
+     */
     @FXML
     public void RedoMoveButtonClicked(ActionEvent e)
     {
         DoRedoMove();
     }
 
+    /**
+     * Zobrazi filechooser a pokusi se ulozit notaci.
+     * @param e
+     */
     @FXML
     public void ExportButtonClicked(ActionEvent e)
     {
@@ -411,7 +456,7 @@ public class TabViewController implements Initializable {
 
         if(!game.getParser().SaveGameNotation(game.getGameNotation(), file.toString()))
         {
-            System.err.println("Nebylo mozno vyexportovat notaci. AKA Nepovedl se zapis."); //todo handle
+            AlertShower.notationSaveError();
         }
     }
 
@@ -434,30 +479,42 @@ public class TabViewController implements Initializable {
     }
 
 
+    /**
+     * Obnovi uzivatelsky tah
+     */
     private void DoRedoMove()
     {
-        if(game.canUndo())
+        Command cmd = game.redoMove();
+        if(cmd != null)
         {
-            Command cmd = game.redoMove();
-            if(cmd != null)
-            {
-                System.err.println("Stack prazdny");
-                moveGUI(cmd, false);
-            }
+            moveGUI(cmd, false);
+            userOn++;
+        }
+        else
+        {
+            AlertShower.noRedoMoveWarning();
         }
     }
 
+    /**
+     * Udela krok zpet podle notace.
+     */
     private void DoBackMove()
     {
         Command cmd = game.backMove();
         if(cmd == null)
-            return; //todo vyhodit messagebox krok zpet neni
+        {
+            AlertShower.backMoveWarning();
+            return;
+        }
         moveGUI(cmd, true);
     }
 
+    /**
+     * Vrati uzivatelsky tah.
+     */
     private void DoUndoMove()
     {
-        System.err.printf("%d\n", userOn);
         if(game.canUndo())
         {
             if(userOn != 0)
@@ -465,25 +522,31 @@ public class TabViewController implements Initializable {
                 Command cmd = game.undoMove();
                 moveGUI(cmd, true);
                 userOn--;
-            }
-            else
-            {
-                //todo handle it
-                System.err.printf("Undo pres limit user tahu!"); //smazat
+                return;
             }
         }
+        AlertShower.undoMoveWarning();
     }
 
+    /**
+     * Získá označený tah z listView a přesune hru před něj
+     * @param e
+     */
     @FXML
     public void MoveFromListViewSelectedHandle(ActionEvent e)
     {
-        int indexToGo = 2 * movesListView.getSelectionModel().getSelectedIndex();
-        //System.out.println("vybrano: " + Integer.toString(indexToGo)); //smazat
+        int selectedIndex  = movesListView.getSelectionModel().getSelectedIndex();
+        if(selectedIndex < 0)
+        {
+            AlertShower.noMoveSelectedWarning();
+            return;
+        }
+        int indexToGo = 2 * selectedIndex;
 
         if(game.getActualMoveIndex() < indexToGo)
         {
             while(game.getActualMoveIndex() < indexToGo)
-                DoNextMove();
+                DoNextMove(true);
         }
         else
         {
@@ -495,7 +558,7 @@ public class TabViewController implements Initializable {
     }
 
 
-    public void moveGUI(Command cmd, boolean isUndo)///note test it!!!
+    public void moveGUI(Command cmd, boolean isUndo)
     {
         if(isUndo)
         {
@@ -612,11 +675,14 @@ public class TabViewController implements Initializable {
         }
         catch (IOException e)
         {
-            System.err.println("nepovedlo se cist"); //fixme
+            AlertShower.notationReadError();
             game = GameFactory.createChessGame(board);
         }
     }
 
+    /**
+     * Provede vsechny potrebne upravy gui tykajici se sachovnice a tlacitek pred startem nove hry
+     */
     private void setChessBoardGUI()
     {
         BackgroundImage bi = new BackgroundImage(new Image("file:lib/whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
@@ -638,15 +704,22 @@ public class TabViewController implements Initializable {
         readNotationButton.setDisable(isAutoplayActive);
     }
 
+    /**
+     * Nacte novou hru bez notace.
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
         setGameFromNotation(null);
     }
 
+    /**
+     * Na Listview s notaci oznaci aktualni tah
+     */
     private void SetActualMoveOnListView()
     {
         movesListView.getSelectionModel().select(game.getActualMoveIndex()/2);
     }
-
 }

@@ -40,7 +40,7 @@ public class AutoPlayThread implements Runnable
         {
             try
             {
-                if(!controller.DoNextMove())
+                if(!controller.DoNextMove(false))
                 {
                     controller.disableAutoplayButtons(false);
                     myStop();
