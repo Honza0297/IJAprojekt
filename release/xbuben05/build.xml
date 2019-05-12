@@ -17,21 +17,36 @@
 
         <!-- Deletes the existing dirs and makes new-->
         <target name="clean" >
-                
+                <delete dir="${build.dir}" />
                 <delete dir="${dest.dir}" />
+                <delete dir="${doc.dir}" />
+                <antcall target="makedir"/>
         </target>
         <target name="run" >
                 <java jar="dest/ija-app.jar" fork="true" />
         </target>
 
-        <!-- Creates the  build, docs and dist directory-->
+        <!-- Creates the  build, docs and dest directory-->
         <target name="makedir" >
                 <mkdir dir="${build.dir}" />
                 <mkdir dir="${dest.dir}" />
-                <mkdir dir="${lib.dir}" />
+                <mkdir dir="${doc.dir}" />
         </target>
-        <!-- Compiles the java code (including the usage of library for JUnit -->
+        
+        <target name="download" >
+            <exec executable="wget">
+                    <arg value="http://www.stud.fit.vutbr.cz/~xberan43/xberan43.zip"/>
+                <arg value="--directory-prefix=./lib/"/>
+                </exec>
+            <exec executable="unzip">
+                    <arg value="./lib/xberan43.zip"/>
+                 <arg value="-d"/>
+                  <arg value="./lib/"/>
+                </exec>
+        </target>
+       
         <target name="compile" depends="clean, makedir">
+                <antcall target="download"/>
                 <javac includeantruntime="false" srcdir="${src.dir}" destdir="${build.dir}" debug="on">
                 </javac>
                 <jar destfile="dest/ija-app.jar" basedir="build">

@@ -1,4 +1,4 @@
 1. a3 d6
-2. d3 Jc6
+2. d3 Jc6#
 3. e2e4 e7e5
 4. Sf1c4 Dd8f6

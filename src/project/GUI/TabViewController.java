@@ -84,37 +84,37 @@ public class TabViewController implements Initializable {
     @FXML
     private ListView movesListView;
 
-    private Image blackPawn = new Image("file:lib/BlackPawn.png");
-    private Image blackRook = new Image("file:lib/BlackRook.png");
-    private Image blackBishop = new Image("file:lib/BlackBishop.png");
-    private Image blackKnight = new Image("file:lib/BlackKnight.png");
-    private Image blackKing = new Image("file:lib/BlackKing.png");
-    private Image blackQueen = new Image("file:lib/BlackQueen.png");
+    private Image blackPawn = new Image("lib/BlackPawn.png");
+    private Image blackRook = new Image("lib/BlackRook.png");
+    private Image blackBishop = new Image("lib/BlackBishop.png");
+    private Image blackKnight = new Image("lib/BlackKnight.png");
+    private Image blackKing = new Image("lib/BlackKing.png");
+    private Image blackQueen = new Image("lib/BlackQueen.png");
 
-    private Image whitePawn = new Image("file:lib/WhitePawn.png");
+    private Image whitePawn = new Image("lib/WhitePawn.png");
 
-    private Image whiteRook = new Image("file:lib/WhiteRook.png");
-    private Image whiteBishop = new Image("file:lib/WhiteBishop.png");
-    private Image whiteKnight = new Image("file:lib/WhiteKnight.png");
-    private Image whiteKing = new Image("file:lib/WhiteKing.png");
-    private Image whiteQueen = new Image("file:lib/WhiteQueen.png");
+    private Image whiteRook = new Image("lib/WhiteRook.png");
+    private Image whiteBishop = new Image("lib/WhiteBishop.png");
+    private Image whiteKnight = new Image("lib/WhiteKnight.png");
+    private Image whiteKing = new Image("lib/WhiteKing.png");
+    private Image whiteQueen = new Image("lib/WhiteQueen.png");
 
-    private Image transparent = new Image("file:lib/transparentImage.png");
-    private Image transparentSelected = new Image("file:lib/transparentImageSelected.png");
+    private Image transparent = new Image("lib/transparentImage.png");
+    private Image transparentSelected = new Image("lib/transparentImageSelected.png");
 
-    private Image blackPawnSelected = new Image("file:lib/BlackPawnSelected.png");
-    private Image blackRookSelected = new Image("file:lib/BlackRookSelected.png");
-    private Image blackBishopSelected = new Image("file:lib/BlackBishopSelected.png");
-    private Image blackKnightSelected = new Image("file:lib/BlackKnightSelected.png");
-    private Image blackKingSelected = new Image("file:lib/BlackKingSelected.png");
-    private Image blackQueenSelected = new Image("file:lib/BlackQueenSelected.png");
+    private Image blackPawnSelected = new Image("lib/BlackPawnSelected.png");
+    private Image blackRookSelected = new Image("lib/BlackRookSelected.png");
+    private Image blackBishopSelected = new Image("lib/BlackBishopSelected.png");
+    private Image blackKnightSelected = new Image("lib/BlackKnightSelected.png");
+    private Image blackKingSelected = new Image("lib/BlackKingSelected.png");
+    private Image blackQueenSelected = new Image("lib/BlackQueenSelected.png");
 
-    private Image whitePawnSelected = new Image("file:lib/WhitePawnSelected.png");
-    private Image whiteRookSelected = new Image("file:lib/WhiteRookSelected.png");
-    private Image whiteBishopSelected = new Image("file:lib/WhiteBishopSelected.png");
-    private Image whiteKnightSelected = new Image("file:lib/WhiteKnightSelected.png");
-    private Image whiteKingSelected = new Image("file:lib/WhiteKingSelected.png");
-    private Image whiteQueenSelected = new Image("file:lib/WhiteQueenSelected.png");
+    private Image whitePawnSelected = new Image("lib/WhitePawnSelected.png");
+    private Image whiteRookSelected = new Image("lib/WhiteRookSelected.png");
+    private Image whiteBishopSelected = new Image("lib/WhiteBishopSelected.png");
+    private Image whiteKnightSelected = new Image("lib/WhiteKnightSelected.png");
+    private Image whiteKingSelected = new Image("lib/WhiteKingSelected.png");
+    private Image whiteQueenSelected = new Image("lib/WhiteQueenSelected.png");
 
 
     public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane)
@@ -619,7 +619,7 @@ public class TabViewController implements Initializable {
 
     private void setChessBoardGUI()
     {
-        BackgroundImage bi = new BackgroundImage(new Image("file:lib/whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        BackgroundImage bi = new BackgroundImage(new Image("lib/whiteField.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         grid.setBackground(new Background(bi));
 
         disableAutoplayButtons(false);
