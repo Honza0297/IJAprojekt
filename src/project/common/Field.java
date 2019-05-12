@@ -1,3 +1,12 @@
+/*
+ *  FIT VUT
+ * Project for IJA, 2018/2019
+ * Authors: Jan Beran (xberan43)
+ *           Daniel Bubenicek (xbuben05)
+ *
+ * Interface for Field.
+ *
+ * */
 package project.common;
 
 public interface Field

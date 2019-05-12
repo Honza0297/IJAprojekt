@@ -1,6 +1,14 @@
-package sample;
+/*
+ *  FIT VUT
+ * Project for IJA, 2018/2019
+ * Authors: Jan Beran (xberan43)
+ *           Daniel Bubenicek (xbuben05)
+ *
+ * MainWindowController class.
+ *
+ * */
+package project.GUI;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,13 +18,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
 
-public class FirstViewController implements Initializable {
+public class MainWindowViewController implements Initializable {
 
 
     @FXML private MenuItem openTabMI, closeMI, newNotationGameOpenTab;
@@ -36,7 +43,7 @@ public class FirstViewController implements Initializable {
 
     private void createTabDynamically() {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("secondView.fxml"));
+        loader.setLocation(getClass().getResource("TabView.fxml"));
         try {
             Parent parent = loader.load();
             myDynamicTab = new Tab("Hra " + numberOfCreatedTabs++);

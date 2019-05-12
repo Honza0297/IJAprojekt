@@ -1,13 +1,20 @@
-package sample;
+/*
+ *  FIT VUT
+ * Project for IJA, 2018/2019
+ * Authors: Jan Beran (xberan43)
+ *           Daniel Bubenicek (xbuben05)
+ *
+ * Main class.
+ *
+ * */
+
+package project.GUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
-import java.io.File;
 //todo denny zabit autoplay vlakna pri ukonceni appky
 //todo berry po zabiti krale a snaze hrat, zustanou figurky oznacene
 //todo denny nacteni notace s +, #, x, atd.. + notace ktera konci tahem bileho
@@ -17,8 +24,6 @@ import java.io.File;
 //todo denny opravit export bez user tahu
 //todo zakazat tlacitka ve spravnych chvilich
 //todo misto konzoloveho vypisu objevit javovske messageboxy
-//todo berry? vycentrovat figurky
-//todo berry? zvyrazneni kliknutych policek
 //todo dvakrat kliknuto na to same = zrusit odznaceni (ted hazi hlasku)
 
 public class Main extends Application {
@@ -30,8 +35,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("FirstView.fxml"));
-        FirstViewController firstViewController = new FirstViewController();
+        loader.setLocation(getClass().getResource("MainWindowView.fxml"));
+        MainWindowViewController firstViewController = new MainWindowViewController();
         loader.setController(firstViewController);
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
