@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<project name="ija-app" default="main" basedir="."  xmlns:fx="javafx:com.sun.javafx.tools.ant">
+        <!-- Sets variables which can later be used. -->
+        <!-- The value of a property is accessed via ${} -->
+        <property name="src.dir" location="src" />
+        <property name="data.dir" location="data" />
+        <property name="build.dir" location="build" />
+        <property name="doc.dir" location="doc" />
+        <property name="dest.dir" location="dest" />
+        <property name="lib.dir" location="lib" />
+
+        <target name="doc" depends="makedir" description="generate documentation">
+        <javadoc sourcepath="${src.dir}" destdir="${doc.dir}">
+          <fileset dir="${src.dir}" includes="**/*.java"/> 
+        </javadoc>
+        </target>
+
+        <!-- Deletes the existing dirs and makes new-->
+        <target name="clean" >
+                
+                <delete dir="${dest.dir}" />
+        </target>
+        <target name="run" >
+                <java jar="dest/ija-app.jar" fork="true" />
+        </target>
+
+        <!-- Creates the  build, docs and dist directory-->
+        <target name="makedir" >
+                <mkdir dir="${build.dir}" />
+                <mkdir dir="${dest.dir}" />
+                <mkdir dir="${lib.dir}" />
+        </target>
+        <!-- Compiles the java code (including the usage of library for JUnit -->
+        <target name="compile" depends="clean, makedir">
+                <javac includeantruntime="false" srcdir="${src.dir}" destdir="${build.dir}" debug="on">
+                </javac>
+                <jar destfile="dest/ija-app.jar" basedir="build">
+              <manifest>
+                  <attribute name="Main-Class" value="project.GUI.Main"/>
+              </manifest>
+             <fileset dir="./">
+                 <include name="lib/*.png" />
+             </fileset>
+
+             <fileset dir="./src">
+                 <include name="project/GUI/*.fxml" />
+             </fileset>
+          </jar>
+        </target>
+</project>
