@@ -1,12 +1,21 @@
-package sample;
+/*
+ *  FIT VUT
+ * Project for IJA, 2018/2019
+ * Authors: Jan Beran (xberan43)
+ *           Daniel Bubenicek (xbuben05)
+ *
+ * AutoPlayThread class.
+ *
+ * */
+package project.GUI;
 
 public class AutoPlayThread implements Runnable
 {
     private volatile Thread blinker;
-    private SecondViewController controller;
+    private TabViewController controller;
     private int speed;
 
-    public AutoPlayThread(SecondViewController controller, int speed)
+    public AutoPlayThread(TabViewController controller, int speed)
     {
         this.controller = controller;
         this.speed = speed;

@@ -1,8 +1,17 @@
-package sample;
+/*
+ *  FIT VUT
+ * Project for IJA, 2018/2019
+ * Authors: Jan Beran (xberan43)
+ *           Daniel Bubenicek (xbuben05)
+ *
+ * TabViewController class.
+ *
+ * */
+
+package project.GUI;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,7 +41,7 @@ import project.game.Board;
 import project.game.InnerMoveNotation;
 import project.game.figures.*;
 
-public class SecondViewController implements Initializable {
+public class TabViewController implements Initializable {
 
     private int userOn;
     private Game game;
@@ -247,6 +256,7 @@ public class SecondViewController implements Initializable {
         catch (EndOfGameException eofg)
         {
             System.out.println("konec hry!");
+            ((ImageView)getNodeByRowColumnIndex(from.getRow()-1, from.getCol()-1, grid)).setImage(fromImage);
         }
         catch (ImpossibleMoveException ime)
         {

@@ -1,3 +1,12 @@
+/*
+ *  FIT VUT
+ * Project for IJA, 2018/2019
+ * Authors: Jan Beran (xberan43)
+ *           Daniel Bubenicek (xbuben05)
+ *
+ * ChessGame class.
+ *
+ * */
 package project.game;
 
 
@@ -267,7 +276,7 @@ public class ChessGame implements Game {
     }
 
     /**
-     * Do moves initiated by user using GUI
+     * Do moves initiated by user using project.GUI
      * @param moveNotation
      * @return
      * @throws ImpossibleMoveException
