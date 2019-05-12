@@ -73,13 +73,11 @@ public class NotationReaderWriter implements IReaderWriter
     {
         try
         {
-            System.out.println(Paths.get(filenameForReading).toString());
             file = FXCollections.observableArrayList(Files.readAllLines(Paths.get(filenameForReading)));
             return true;
         }
         catch (IOException e)
         {
-            System.out.println(e);
             return false;
         }
     }

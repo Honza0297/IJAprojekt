@@ -42,7 +42,6 @@ public class ChessGame implements Game {
         gameNotation = parser.ParseGameToInner();
         if(gameNotation == null)
         {
-            System.out.println("Nepovedlo se nacist notaci!"); //fixme
             throw new IOException();
         }
     }
@@ -194,6 +193,10 @@ public class ChessGame implements Game {
         return invoker.undo(true);
     }
 
+    /**
+     * Overi nektere podminky, ktere jsou nutne k povoleni vraceni uzivatelskych tahu
+     * @return true pokud je mozno provest uzivatelsky tah zpet
+     */
     public boolean canUndo()
     {
         if(moveIndex == 0)
